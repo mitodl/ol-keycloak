@@ -1,0 +1,165 @@
+.login-pf body {
+    background: #f5f5f5;
+}
+@media (min-width: 768px) {
+    #kc-page-title {
+        line-height: 52px;
+    }
+    .login-pf-page .card-pf {
+        margin: auto;
+        max-width: 700px;
+    }
+}
+.login-pf-page .card-pf {
+    box-shadow: -4px 5px 8px 0px rgb(204 204 204 / 80%);
+}
+
+#kc-page-title {
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.pf-c-button.pf-m-primary {
+    background: linear-gradient(174deg, #a31f34, #a31f34) !important;
+    border: 1px solid #a31f34;
+    border-radius: 4px
+}
+
+.pf-c-form__label-text {
+    font-weight: normal !important;
+    font-size: 16px;
+}
+
+.login-pf a:hover {
+    color: #a31f34;
+}
+
+#kc-header-wrapper {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+.logo-link g{
+    transform: scale(0.2);
+}
+
+.logo-link svg{
+    height: 35px !important;
+    width: 65px !important;
+}
+
+.col-md-10 {
+    width: 100%;
+}
+
+/* footer styles START */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 0 0 42px;
+    margin-top: 10%;
+}
+.support-links {
+    background: #fff;
+    padding-top: 40px;
+    display:inline-block;
+    width: 100%;
+}
+.footer .container {
+    max-width: 100%;
+}
+.footer .footer-top {
+    padding-top: 30px;
+}
+@media (min-width: 768px) {
+    .footer .mit-info {
+        padding: 0;
+        float: left;
+        width: 44%;
+    }
+    .footer .container {
+        position: inherit;
+        bottom: 13%;
+        padding-left: 80px;
+        width: 100%;
+    }
+    .footer .copyright {
+        margin: 0;
+    }
+}
+.footer .mit-info {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 0 32px 16px;
+}
+.footer .mit-info address {
+    overflow: hidden;
+    display: block;
+    margin: 0;
+}
+
+.footer .footer-bottom {
+    padding-top: 54px;
+    overflow: auto;
+    float: right;
+}
+
+.copyright {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 5px 0;
+    float: left;
+    margin: auto;
+}
+
+.footer-bottom li {
+    float:left;
+    padding-right: 15px;
+}
+
+.footer .info p {
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.footer .info {
+    float: right;
+    padding-left: 15px;
+}
+
+.footer .support-link-info {
+    display: inline-block;
+}
+
+#link1 {
+    float: left;
+    width: 50%;
+    padding-left: 50px;
+}
+
+#link2 {
+    float: right;
+    padding-right: 50px;
+}
+
+.footer .footer-container {
+    overflow: auto;
+}
+
+.footer .footer-sub-nav {
+    padding: 0;
+    margin: 0 0 5px;
+    list-style: none;
+    text-align: right;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+/* footer styles END */
