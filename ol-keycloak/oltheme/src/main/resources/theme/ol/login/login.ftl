@@ -109,7 +109,7 @@
                 </ul>
             </div>
         </#if>
-        <#if realm.password && unlinkedProviders.providers??>
+        <#if realm.password && unlinkedProviders?? && unlinkedProviders.providers??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
                 <hr/>
                 <h4>${msg("ol-unlinked-identity-provider-label")}</h4>
