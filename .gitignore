@@ -1,2 +1,3 @@
 ol-keycloak/ol-spi/target/*
 ol-keycloak/oltheme/target/*
+.DS_Store
