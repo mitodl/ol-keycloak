@@ -27,11 +27,6 @@ public class UsernamePasswordForm extends org.keycloak.authentication.authentica
             LoginFormsProvider form = context.form();
             realmIdentityProvidersList.removeAll(identityProvidersLinkedWithUser);
             String requestURI = session.getContext().getUri().getBaseUri().getPath();
-            try {
-                new URL(requestURI);
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
             UriBuilder uriBuilder = UriBuilder.fromUri(requestURI);
             ClientModel client = session.getContext().getClient();
             if (client != null) {
