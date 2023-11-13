@@ -8,7 +8,9 @@ import org.keycloak.forms.login.freemarker.model.IdentityProviderBean;
 import org.keycloak.models.*;
 import org.keycloak.services.resources.LoginActionsService;
 
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +27,11 @@ public class UsernamePasswordForm extends org.keycloak.authentication.authentica
             LoginFormsProvider form = context.form();
             realmIdentityProvidersList.removeAll(identityProvidersLinkedWithUser);
             String requestURI = session.getContext().getUri().getBaseUri().getPath();
+            try {
+                new URL(requestURI);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
             UriBuilder uriBuilder = UriBuilder.fromUri(requestURI);
             ClientModel client = session.getContext().getClient();
             if (client != null) {
