@@ -8,9 +8,7 @@ import org.keycloak.forms.login.freemarker.model.IdentityProviderBean;
 import org.keycloak.models.*;
 import org.keycloak.services.resources.LoginActionsService;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
