@@ -24,18 +24,12 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
       working-directory: ./ol-keycloak/ol-spi
 
-    - name: Upload jar file
-      uses: actions/upload-artifact@v3
+    - name: Create Release with jar file
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        name: Package
-        path: ./ol-keycloak/ol-spi/target/*.jar
-
-    - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: release-${{ github.run_id }}
-        release_name: Release ${{ github.run_id }}
-        draft: false
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
         prerelease: false
+        title: "ol-spi release"
+        files: |
+          ./ol-keycloak/ol-spi/target/*.jar
