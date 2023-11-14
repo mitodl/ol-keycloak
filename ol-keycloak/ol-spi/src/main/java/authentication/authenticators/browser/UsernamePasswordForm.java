@@ -9,6 +9,7 @@ import org.keycloak.models.*;
 import org.keycloak.services.resources.LoginActionsService;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,6 +37,11 @@ public class UsernamePasswordForm extends org.keycloak.authentication.authentica
                 uriBuilder.queryParam(LoginActionsService.SESSION_CODE, accessCode);
             }
             URI baseUriWithCodeAndClientId = uriBuilder.build();
+            try {
+                new URI(baseUriWithCodeAndClientId.getPath());
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             form.setAttribute("unlinkedProviders", new IdentityProviderBean(realm, session, realmIdentityProvidersList, baseUriWithCodeAndClientId));
         }
         super.authenticate(context);
