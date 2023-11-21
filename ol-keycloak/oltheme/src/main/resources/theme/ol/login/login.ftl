@@ -5,7 +5,7 @@
     <#elseif section = "form">
         <div id="kc-form">
           <div id="kc-form-wrapper">
-            <#if realm.password>
+            <#if realm.password && !social.providers??>
                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <#if !usernameHidden??>
                         <div class="${properties.kcFormGroupClass!}">
@@ -109,6 +109,7 @@
                 </ul>
             </div>
         </#if>
+<<<<<<< Updated upstream
         <#if realm.password && unlinkedProviders?? && unlinkedProviders.providers??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
                 <hr/>
@@ -131,5 +132,7 @@
                 </ul>
             </div>
         </#if>
+=======
+>>>>>>> Stashed changes
     </#if>
 </@layout.registrationLayout>
