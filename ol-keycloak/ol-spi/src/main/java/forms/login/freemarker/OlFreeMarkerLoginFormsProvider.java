@@ -33,7 +33,7 @@ public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.fre
 
     protected void createCommonAttributes(Theme theme, Locale locale, Properties messagesBundle, UriBuilder baseUriBuilder, LoginFormsPages page) {
         super.createCommonAttributes(theme, locale, messagesBundle,baseUriBuilder,page);
-        if (page == LOGIN_PASSWORD) {
+        if (page == LOGIN) {
             String firstName = "";
             if (context.getUser() != null) {
                 firstName = context.getUser().getFirstName();
