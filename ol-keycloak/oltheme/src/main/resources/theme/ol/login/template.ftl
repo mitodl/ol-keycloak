@@ -114,38 +114,18 @@
                     <div class="col-md-10">
                         <#nested "show-username">
                         <div id="kc-username" class="${properties.kcFormGroupClass!}">
-<<<<<<< Updated upstream
-                            <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                            <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                                <div class="kc-login-tooltip">
-                                    <i class="${properties.kcResetFlowIcon!}"></i>
-                                    <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                                </div>
-                            </a>
-=======
                             <#if firstName??>
-                                <span id="kc-attempted-username">Hi ${firstName}!</span>
+                                <span id="kc-attempted-username">${msg("loginGreeting")} ${firstName}!</span>
                             </#if>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
             <#else>
                 <#nested "show-username">
                 <div id="kc-username" class="${properties.kcFormGroupClass!}">
-<<<<<<< Updated upstream
-                    <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                    <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
-                        <div class="kc-login-tooltip">
-                            <i class="${properties.kcResetFlowIcon!}"></i>
-                            <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                        </div>
-                    </a>
-=======
                     <#if firstName??>
-                        <label id="kc-attempted-username">Hi ${firstName}!</label>
+                        <label id="kc-attempted-username">${msg("loginGreeting")} ${firstName}!</label>
                     </#if>
->>>>>>> Stashed changes
                 </div>
             </#if>
         </#if>
@@ -182,7 +162,6 @@
           <#nested "socialProviders">
             <#if allProviders??>
                 <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
-                    <hr/>
                     <h4>${msg("identity-provider-redirector")}</h4>
 
                     <ul class="${properties.kcFormSocialAccountListClass!} <#if allProviders?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
@@ -215,63 +194,16 @@
 
     </div>
   </div>
-    <footer class="footer">
-        <span>© 2023 Massachusetts Institute of Technology</span>
+</body>
+<footer class="footer">
+    <div id="footer-links">
         <a href="google.com">Accessibility</a>
         <a href="google.com">Terms of service</a>
         <a href="google.com">Privacy Policy</a>
-    </footer>
-</body>
-<footer class="footer">
-  <div class="support-links">
-    <div id="link1">
-        <div class="support-link-info">
-            <img src="${url.resourcesPath}/img/help.png" alt="Help" loading="lazy">
-            <div class="info">
-            <a href=" https://mitxonline.zendesk.com/hc/en-us">
-                <h2>Help &amp; FAQ</h2>
-            </a>
-            <p>Find answers to your questions.</p>
-            </div>
-        </div>
     </div>
-    <div id="link2">
-        <img src="${url.resourcesPath}/img/contact.png" alt="Contact Us" loading="lazy">
-        <div class="info">
-        <a href="https://mitxonline.zendesk.com/hc/en-us/requests/new">
-            <h2>Contact Us</h2>
-        </a>
-        <p>Let us know how we can assist you.</p>
-        </div>
+    <div id="copywrite">
+        <span>© 2023 Massachusetts Institute of Technology</span>
     </div>
-  </div>
-  <div class="footer-container">
-    <div class="footer-top">
-      <div class="mit-info">
-        <img src="${url.resourcesPath}/img/mit.png" width="78" height="41" alt="MIT" loading="lazy">
-        <address>
-          Massachusetts Institute of Technology <br>77 Massachusetts Avenue
-          <br>Cambridge, MA 02139
-        </address>
-      </div>
-      <div class="right-info">
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        <ul class="footer-sub-nav">
-          <li><a href="/about-us/">About Us</a></li>
-          <li><a href="/terms-of-service/">Terms of Service</a></li>
-          <li><a href="/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="/honor-code/">Honor Code</a></li>
-          <li>
-            <a target="_blank" href="https://accessibility.mit.edu/" rel="noopener noreferrer">Accessibility</a>
-          </li>
-        </ul>
-      </div>
-      <span class="copyright">© 2023 Massachusetts Institute of Technology</span>
-    </div>
-  </div>
 </footer>
 </html>
 </#macro>
