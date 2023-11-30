@@ -134,13 +134,20 @@
             </#if>
 
             <div class="${properties.kcFormGroupClass!}">
+
+                <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
+                    <div class="${properties.kcFormOptionsWrapperClass!}">
+                        <span>${msg('registerLegalAgreementText')} <a href="google.com">${kcSanitize(msg("registerTermsOfService"))?no_esc}</a> and <a href="google.com">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a></span>
+                    </div>
+                </div>
+
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
                 </div>
 
                 <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
                     <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span><a href="${url.loginUrl}">${msg('alreadyHaveAnAccountRegister')} ${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
+                        <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
                     </div>
                 </div>
             </div>
@@ -149,12 +156,10 @@
     </#if>
     <#if section = "socialProviders" >
         <#if realm.password && (social.providers?? || unlinkedProviders??)>
-            <div class="textline">Or</div>
+            <div class="textline">or</div>
         </#if>
         <#if realm.password && social.providers??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
-                <h4>${msg("ol-unlinked-identity-provider-label")}</h4>
-
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                     <#list social.providers as p>
                         <li>

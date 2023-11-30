@@ -1,18 +1,15 @@
+.login-pf {
+    background: var(--GreyLite, #F0F5F7);
+}
+
 .login-pf body {
     background: var(--GreyLite, #F0F5F7);
-    padding: 70px 401px 147px 402px;
-    flex-direction: column;
-    align-items: center;
-    gap: 24.898px;
 }
-@media (min-width: 768px) {
-    #kc-page-title {
-        line-height: 52px;
-    }
-    .login-pf-page .card-pf {
-        margin: auto;
-        max-width: 700px;
-    }
+
+.alert-error {
+    border-radius: 3px;
+    border: 1px solid rgba(194, 111, 111, 0.50);
+    background: #FCE6E6;
 }
 
 #kc-page-title {
@@ -20,16 +17,139 @@
     margin-bottom: 0px;
 }
 .login-pf-page {
+    max-width: 477px;
+    margin: auto;
+
+    @media (max-width: 768px) {
+        margin: 0px 10px 0px 10px;
+    }
+
+    #kc-header {
+        margin-top: 70px;
+        margin-bottom: 25px;
+    }
     .card-pf {
+        display: flex;
+        margin: auto;
         padding: 40px;
+        flex-direction: column;
+        align-items: flex-start;
         border-radius: 3px;
-        border: 2px, 0px, 0px, 0px;
-        border-top: 2px solid var(--BrandBlue, #0315
-        2D);
+        border-top: 2px solid var(--BrandBlue, #03152D);
         background: var(--White, #FFF);
 
         /* Shadow-1 */
         box-shadow: 0px 2px 2px 0px rgba(3, 21, 45, 0.05);
+
+        #kc-content {
+            align-self: stretch;
+
+            #kc-reset-password-form {
+                .form-group {
+                    margin-bottom: 20px;
+                }
+            }
+
+            #kc-passwd-update-form {
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+            }
+
+            #kc-register-form {
+                .form-group {
+                    margin-bottom: 20px;
+                }
+
+                #kc-form-legal-options {
+                    margin-bottom: 20px;
+                }
+
+                #kc-form-options {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+                    margin-top: 30px;
+                }
+            }
+
+            #reset-password-subtitle {
+                margin-bottom: 30px;
+                color: var(--BrandBlue, #03152D);
+                leading-trim: both;
+                text-edge: cap;
+
+                /* Subheading */
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+                letter-spacing: -0.1px;
+            }
+
+            .pf-c-form-control {
+                display: flex;
+                padding: 16px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                align-self: stretch;
+                border-radius: 4px;
+                border: 1px solid var(--BorderColor, #D5DAE1);
+                background: var(--White, #FFF);
+                height: 56px;
+            }
+
+            #kc-content-wrapper {
+
+                .textline{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--BrandBlue, #03152D);
+                    margin-bottom: 25px;
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.1px;
+                }
+                .textline:before {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background: #D5DAE1;
+                    margin: 0;
+                    margin-right: 10px;
+                }
+                .textline:after {
+                    content: "";
+                    width: 150px;
+                    height: 1px;
+                    background: #D5DAE1;
+                    margin: 0;
+                    margin-left: 10px;
+                }
+
+                h2 {
+                    margin-top: 0px;
+                    color: var(--BrandBlue, #03152D);
+                    leading-trim: both;
+                    text-edge: cap;
+
+                    /* Subheading */
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%; /* 22.4px */
+                    letter-spacing: -0.1px;
+                }
+            }
+        }
     }
 
     .login-pf-header {
@@ -101,9 +221,10 @@
         margin-top: 20px;
     }
 }
+.login-pf-page .login-pf-signup a {
+    margin-left: 0px;
+}
 
-<<<<<<< Updated upstream
-=======
 .form-group {
     margin-bottom: 0;
 }
@@ -116,8 +237,6 @@
     align-self: stretch;
 }
 
-
->>>>>>> Stashed changes
 #kc-page-title {
     font-size: 38px;
     font-weight: 700;
@@ -126,10 +245,6 @@
 .pf-c-form__label-text {
     font-weight: normal !important;
     font-size: 16px;
-}
-
-.login-pf a:hover {
-    color: #a31f34;
 }
 
 #kc-header {
@@ -149,6 +264,51 @@
 .login-pf-page .login-pf-signup {
     gap: 5px;
     margin: 20px 0 0;
+
+    .instruction {
+        #kc-form-buttons {
+            margin-bottom: 10px;
+        }
+    }
+
+    #ol-email-verify-instructions {
+        display: flex;
+        gap: 20px;
+        align-items: start;
+        flex-direction: column;
+        text-align: start;
+        margin-top: 30px;
+
+        color: var(--BrandBlue, #03152D);
+        leading-trim: both;
+        text-edge: cap;
+
+        /* Default */
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        line-height: 20px;
+        letter-spacing: -0.1px;
+
+        #email-verify-instruction-red {
+            color: var(--BrandRed, #A31F34);
+            leading-trim: both;
+            text-edge: cap;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px; /* 142.857% */
+            letter-spacing: -0.1px;
+        }
+    }
+    #ol-email-verify-instructions hr {
+        border: 0;
+        width: 100%;
+        background-color: #4d5258;
+        height: 1px;
+        margin: 0;
+    }
 }
 
 .login-pf-page .login-pf-signup span {
@@ -164,11 +324,22 @@
 /* footer styles START */
 .footer {
     display: inline-flex;
-    padding: 10px 10px 50px 10px;
+    padding: 96px 10px 50px 10px;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    background: var(--GreyLite, #F0F5F7);
     width: 100%;
+    flex-direction: row-reverse;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+
+    #footer-links {
+        display: flex;
+        gap: 10px;
+    }
 
     span {
         color: #000;
@@ -203,6 +374,11 @@ a {
     line-height: normal;
     letter-spacing: -0.1px;
     text-decoration-line: underline;
+    transition: color 500ms;
+}
+
+a:hover {
+    color: var(--BrandRed, #A31F34);
 }
 
 .pf-c-button.pf-m-primary {
@@ -222,6 +398,11 @@ a {
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.5px;
+    transition: background-color 500ms;
+}
+
+.pf-c-button.pf-m-primary:hover {
+    background: var(--BrandRed, #A31F34);
 }
 
 #input-error {
@@ -272,13 +453,25 @@ a {
     letter-spacing: -0.1px;
 }
 .kc-social-item {
-    display: flex;
+    display: flex !important;
     padding: 13px 20px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    align-self: stretch;
     border-radius: 5px;
     border: 1px solid var(--BorderColor, #D5DAE1);
     background: var(--White, #FFF);
+    transition: background 500ms;
+    text-decoration-line: none;
+    --pf-c-button--after--BorderColor: transparent !important;
+}
+.kc-social-item:hover {
+    background: var(--GreyLite, #F0F5F7);
+}
+.kc-social-links {
+    width: 100%;
+}
+
+.kc-social-links li {
+    width: inherit;
 }
