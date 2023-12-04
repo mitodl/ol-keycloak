@@ -5,7 +5,7 @@
     <#elseif section = "form">
         <div id="kc-form">
           <div id="kc-form-wrapper">
-            <#if realm.password>
+            <#if realm.password && !social.providers??>
                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <#if !usernameHidden??>
                         <div class="${properties.kcFormGroupClass!}">
@@ -31,11 +31,6 @@
                             <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                    aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                             />
-                            <button class="pf-c-button pf-m-control" type="button" aria-label="${msg("showPassword")}"
-                                    aria-controls="password"  data-password-toggle
-                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </button>
                         </div>
 
                         <#if usernameHidden?? && messagesPerField.existsError('username','password')>
@@ -89,35 +84,12 @@
     <#elseif section = "socialProviders" >
         <#if realm.password && social.providers??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
-                <hr/>
                 <h4>${msg("ol-linked-identity-provider-label")}</h4>
 
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                     <#list social.providers as p>
                         <li>
                             <a id="social-${p.alias}" class="${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                    type="button" href="${p.loginUrl}">
-                                <#if p.iconClasses?has_content>
-                                    <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                    <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                                <#else>
-                                    <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                                </#if>
-                            </a>
-                        </li>
-                    </#list>
-                </ul>
-            </div>
-        </#if>
-        <#if realm.password && unlinkedProviders?? && unlinkedProviders.providers??>
-            <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
-                <hr/>
-                <h4>${msg("ol-unlinked-identity-provider-label")}</h4>
-
-                <ul class="${properties.kcFormSocialAccountListClass!} <#if unlinkedProviders.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
-                    <#list unlinkedProviders.providers as p>
-                        <li>
-                            <a id="social-${p.alias}" class="${properties.kcFormSocialAccountListButtonClass!} <#if unlinkedProviders.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
                                     type="button" href="${p.loginUrl}">
                                 <#if p.iconClasses?has_content>
                                     <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
