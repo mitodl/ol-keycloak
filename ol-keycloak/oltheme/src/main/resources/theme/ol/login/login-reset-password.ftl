@@ -4,7 +4,7 @@
         ${msg("emailForgotTitle")}
     <#elseif section = "form">
         <div id="reset-password-subtitle">
-            <h2>${msg("resetPasswordSubtitle)}</h2>
+            <h2>${msg("resetPasswordSubtitle")}</h2>
         </div>
         <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
