@@ -61,6 +61,18 @@
                     margin-bottom: 20px;
                 }
 
+                .pf-m-error {
+                    color: var(--BrandRed, #A31F34);
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.1px;
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+
                 #kc-form-legal-options {
                     margin-bottom: 20px;
                 }
