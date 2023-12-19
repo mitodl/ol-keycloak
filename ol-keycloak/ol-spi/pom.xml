@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-server-spi-private</artifactId>
-            <version>22.0.5</version>
+            <version>23.0.3</version>
         </dependency>
     </dependencies>
     
