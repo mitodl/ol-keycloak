@@ -19,14 +19,16 @@ package forms.login.freemarker;
 import jakarta.ws.rs.core.*;
 import org.keycloak.forms.login.LoginFormsPages;
 import org.keycloak.models.*;
+import org.keycloak.credential.CredentialModel;
 import org.keycloak.theme.Theme;
 import java.util.*;
+import java.util.stream.Stream;
+
 
 import static org.keycloak.forms.login.LoginFormsPages.LOGIN;
 import static org.keycloak.forms.login.LoginFormsPages.LOGIN_PASSWORD;
 
 public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.freemarker.FreeMarkerLoginFormsProvider {
-
     public OlFreeMarkerLoginFormsProvider(KeycloakSession session) {
         super(session);
     }
@@ -35,10 +37,16 @@ public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.fre
         super.createCommonAttributes(theme, locale, messagesBundle,baseUriBuilder,page);
         if (page == LOGIN) {
             String firstName = "";
-            if (context.getUser() != null) {
-                firstName = context.getUser().getFirstName();
+            Boolean hasCredentials = false;
+            UserModel user = context.getUser();
+            if (context.getUser() !=  null) {
+                firstName = user.getFirstName();
+                Stream<CredentialModel> credentials = user.credentialManager().getStoredCredentialsStream();
+                hasCredentials = credentials.count() > 0;
+                
             }
             this.attributes.put("firstName", firstName);
+            this.attributes.put("hasCredentials", hasCredentials);
         }
     }
 }

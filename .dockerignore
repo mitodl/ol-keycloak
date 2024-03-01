@@ -1,0 +1,2 @@
+# this file purposely excludes the ignore for plugins/ directory
+.DS_Store
