@@ -36,16 +36,19 @@ public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.fre
     protected void createCommonAttributes(Theme theme, Locale locale, Properties messagesBundle, UriBuilder baseUriBuilder, LoginFormsPages page) {
         super.createCommonAttributes(theme, locale, messagesBundle,baseUriBuilder,page);
         if (page == LOGIN) {
-            String firstName = "";
+            String attemptedName = "";
             Boolean hasCredentials = false;
             UserModel user = context.getUser();
-            if (context.getUser() !=  null) {
-                firstName = user.getFirstName();
+            if (user != null) {
+                if (user.getFirstName() != null && user.getLastName() != null) {
+                    attemptedName = user.getFirstName().concat(" ").concat(user.getLastName());
+                }
+
                 Stream<CredentialModel> credentials = user.credentialManager().getStoredCredentialsStream();
                 hasCredentials = credentials.count() > 0;
-                
+
             }
-            this.attributes.put("firstName", firstName);
+            this.attributes.put("attemptedName", attemptedName);
             this.attributes.put("hasCredentials", hasCredentials);
         }
     }

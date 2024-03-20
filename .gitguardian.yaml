@@ -1,0 +1,5 @@
+version: 2
+secret:
+  ignore:
+    - name:
+      match: "kcFormPasswordVisibilityButtonClass=pf-v5-c-button pf-m-plain"

@@ -7,7 +7,7 @@
             <div id="kc-form-wrapper">
                 <#if realm.password>
                     <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}"
-                          method="post">
+                        method="post" class="${properties.kcFormClass}">
                         <#if !usernameHidden??>
                             <div class="${properties.kcFormGroupClass!}">
                                 <label for="username"
@@ -54,7 +54,11 @@
                 </#if>
             </div>
         </div>
-
+    <#elseif section = "socialProviders" >
+        <div class="separator pf-v5-u-py-md">
+            <span class="pf-v5-u-px-md">or</span>
+        </div>
+        <#include "social-providers.ftl">
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration">
