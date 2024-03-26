@@ -4,6 +4,7 @@
     <#if section = "header">
         ${msg("registerTitle")}
     <#elseif section = "form">
+        <p class="instruction pf-v5-u-pb-md">${msg("registerInstruction")}</p>
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
@@ -134,48 +135,33 @@
             </#if>
 
             <div class="${properties.kcFormGroupClass!}">
-
-                <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span>${msg('registerLegalAgreementText')} <a href="google.com">${kcSanitize(msg("registerTermsOfService"))?no_esc}</a> and <a href="google.com">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a></span>
-                    </div>
-                </div>
-
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
-                </div>
-
-                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
-                    </div>
+                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegisterSubmit")}"/>
                 </div>
             </div>
+
         </form>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
     </#if>
     <#if section = "socialProviders" >
-        <#if realm.password && (social.providers?? || unlinkedProviders??)>
-            <div class="textline">or</div>
-        </#if>
-        <#if realm.password && social.providers??>
-            <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
-                <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
-                    <#list social.providers as p>
-                        <li>
-                            <a id="social-${p.alias}" class="${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                    type="button" href="${p.loginUrl}">
-                                <#if p.iconClasses?has_content>
-                                    <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                    <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                                <#else>
-                                    <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                                </#if>
-                            </a>
-                        </li>
-                    </#list>
-                </ul>
+      <div class="separator pf-v5-u-py-md">
+        <span class="pf-v5-u-px-md">or</span>
+      </div>
+      <#include "social-providers.ftl">
+    </#if>
+    <#if section = "footer">
+        <div class="${properties.kcFormGroupClass!}">
+            <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+                <div class="${properties.kcFormOptionsWrapperClass!}">
+                    <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
+                </div>
             </div>
-        </#if>
+
+            <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
+                <div class="${properties.kcFormOptionsWrapperClass!}">
+      <span class="pf-v5-u-font-size-xs">${msg('registerLegalAgreementText')} <a href="#" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerTermsOfService"))?no_esc}</a> ${msg("and")} <a href="#" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a>.</span>
+                </div>
+            </div>
+        </div>
     </#if>
 </@layout.registrationLayout>

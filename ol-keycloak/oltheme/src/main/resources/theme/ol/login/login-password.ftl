@@ -10,14 +10,16 @@
                     <div class="${properties.kcFormGroupClass!} no-bottom-margin">
                         <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                         <div class="${properties.kcInputGroup!}">
-                            <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password"
-                                   type="password" autocomplete="on" autofocus
-                                   aria-invalid="<#if messagesPerField.existsError('password')>true</#if>"
-                            />
-                            <button class="pf-c-button pf-m-control" type="button" aria-label="${msg('showPassword')}"
-                                    aria-controls="password"  data-password-toggle
-                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
-                            </button>
+                            <div class="pf-v5-u-display-flex ${properties.kcInputClass!}">
+                                <input tabindex="2" id="password" name="password"
+                                       type="password" autocomplete="on" autofocus
+                                       aria-invalid="<#if messagesPerField.existsError('password')>true</#if>"
+                                />
+                                <button class="pf-v5-c-button pf-m-plain pf-v5-u-ml-auto" type="button" aria-label="${msg('showPassword')}"
+                                        aria-controls="password"  data-password-toggle
+                                        data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                </button>
+                            </div>
                         </div>
                         <#if messagesPerField.existsError('password')>
                             <span id="input-error-password" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
