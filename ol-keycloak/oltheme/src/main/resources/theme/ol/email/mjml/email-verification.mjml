@@ -1,0 +1,38 @@
+<mjml>
+  <mj-include path="./includes/_head.mjml" />
+  <mj-body>
+    <mj-include path="./includes/header.mjml" />
+
+    <mj-section>
+      <mj-column>
+        <mj-text>
+          <h1>Verify Your Email</h1>
+          <p>
+            Thank you for creating an account with ${realmName}. Please complete
+            the account verification process by verifying your email.
+          </p>
+          <p>To verify your email, please click this link:</p>
+        </mj-text>
+        <mj-button
+          href="${link}"
+          border-radius="5px"
+          background-color="#283343"
+          align="left"
+          font-weight="bold"
+        >
+          Verify Your Email
+        </mj-button>
+        <mj-text>
+          <p>
+            If the button doesn't work, copy and paste this link into your web
+            browser:
+          </p>
+          <p>${link}</p>
+          <p>Welcome and thanks!<br />${realmName} Team</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./includes/footer.mjml" />
+  </mj-body>
+</mjml>

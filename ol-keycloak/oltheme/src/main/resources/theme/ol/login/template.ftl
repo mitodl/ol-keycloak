@@ -208,7 +208,11 @@
           <div id="footer-links">
           </div>
           <div id="copywrite">
-              <span>©${.now?string('yyyy')} Massachusetts Institute of Technology</span>
+              <span>
+                ©${.now?string('yyyy')} Massachusetts Institute of Technology, All Rights Reserved.
+                <a href="#">${msg("registerTermsOfService")}</a> ${msg("and")}
+                <a href="#">${msg("registerPrivacyPolicy")}</a>
+              </span>
           </div>
       </footer>
     </main>

@@ -1,0 +1,13 @@
+<mj-section>
+  <mj-column>
+    <mj-text font-size="13px">
+      MIT, 77 Massachusetts Ave, Cambridge, MA 02139
+      <br />
+      ©${.now?string('yyyy')} Massachusetts Institute of Technology, All Rights
+      Reserved.
+      <br />
+      <a href="#">${msg("termsOfService")}</a> ${msg("and")}
+      <a href="#">${msg("privacyPolicy")}</a>
+    </mj-text>
+  </mj-column>
+</mj-section>
