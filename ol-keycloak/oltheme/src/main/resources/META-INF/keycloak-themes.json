@@ -1,8 +1,8 @@
 {
   "themes": [
     {
-      "name" : "ol",
-      "types": [ "login" ]
+      "name": "ol",
+      "types": ["email", "login"]
     }
   ]
 }

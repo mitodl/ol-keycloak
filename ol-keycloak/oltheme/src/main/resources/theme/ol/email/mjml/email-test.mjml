@@ -1,0 +1,11 @@
+<mjml>
+  <mj-include path="./includes/_head.mjml" />
+  <mj-body>
+    <mj-include path="./includes/header.mjml" />
+
+    <!-- Introduction Text -->
+    <mj-section>
+      <mj-raw>${kcSanitize(msg("emailTestBodyHtml",realmName))?no_esc}</mj-raw>
+    </mj-section>
+  </mj-body>
+</mjml>

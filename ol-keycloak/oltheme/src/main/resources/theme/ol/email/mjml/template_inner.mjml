@@ -1,0 +1,10 @@
+<mjml>
+  <mj-include path="./includes/_head.mjml" />
+  <mj-body>
+    <mj-include path="./includes/header.mjml" />
+
+    <mj-section>
+      <mj-raw><#nested></mj-raw>
+    </mj-section>
+  </mj-body>
+</mjml>

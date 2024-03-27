@@ -1,0 +1,23 @@
+<mj-section>
+  <mj-column
+    vertical-align="middle"
+    width="150px"
+  >
+    <mj-image
+      src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png"
+      href="https://mit.edu"
+      padding="0"
+      alt=""
+    />
+  </mj-column>
+  <mj-column
+    vertical-align="middle"
+    width="450px"
+  >
+    <mj-text padding="0">
+      <h1 class="logo-text">
+        <a href="${msg("homeUrl")}">Open</a>
+      </h1>
+    </mj-text>
+  </mj-column>
+</mj-section>
