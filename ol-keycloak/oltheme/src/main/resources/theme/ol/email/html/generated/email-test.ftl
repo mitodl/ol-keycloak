@@ -104,7 +104,8 @@
   </style>
   <style type="text/css">
     .logo-text a,
-    .logo-text a:visited,
+    .logo-textd .logo-text a,
+    :visited,
     .logo-text a:hover,
     .logo-text a:active {
       text-decoration: none;
@@ -133,7 +134,7 @@
                             <tr>
                               <td style="width:150px;">
                                 <a href="https://mit.edu" target="_blank">
-                                  <img alt="" src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" height="auto" />
+                                  <img alt="" src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:11px;" width="150" height="auto" />
                                 </a>
                               </td>
                             </tr>
@@ -149,8 +150,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
                   <tbody>
                     <tr>
-                      <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:left;color:#000000;">
+                      <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
+                        <div style="font-family:Inter, Arial;font-size:11px;line-height:1;text-align:left;color:#000000;">
                           <h1 class="logo-text">
                             <a href="${msg(" homeUrl")}">Open</a>
                           </h1>
@@ -166,15 +167,15 @@
         </tbody>
       </table>
     </div>
-    <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <!--[if mso | IE]></td></tr></table><![endif]-->
+    <!-- Introduction Text -->
+    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
     <div style="margin:0px auto;max-width:600px;">
       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
         <tbody>
           <tr>
             <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
-              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]-->
-              <#nested>
-                <!--[if mso | IE]></tr></table><![endif]-->
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><![endif]--> ${kcSanitize(msg("emailTestBodyHtml",realmName))?no_esc} <!--[if mso | IE]></tr></table><![endif]-->
             </td>
           </tr>
         </tbody>

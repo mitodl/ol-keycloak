@@ -1,3 +1,3 @@
 <#macro emailLayout>
-<#include "template_inner.ftl"/>
+<#include "generated/includes/template-inner.ftl"/>
 </#macro>
