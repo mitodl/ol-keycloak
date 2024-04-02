@@ -14,19 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package forms.login.freemarker;
+package edu.mit.keycloak.forms.login.freemarker;
 
 import jakarta.ws.rs.core.*;
 import org.keycloak.forms.login.LoginFormsPages;
 import org.keycloak.models.*;
-import org.keycloak.credential.CredentialModel;
 import org.keycloak.theme.Theme;
 import java.util.*;
-import java.util.stream.Stream;
 
+
+import edu.mit.keycloak.forms.login.freemarker.models.OLLoginAttemptBean;
+import edu.mit.keycloak.forms.login.freemarker.models.OLSettingsBean;
 
 import static org.keycloak.forms.login.LoginFormsPages.LOGIN;
-import static org.keycloak.forms.login.LoginFormsPages.LOGIN_PASSWORD;
 
 public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.freemarker.FreeMarkerLoginFormsProvider {
     public OlFreeMarkerLoginFormsProvider(KeycloakSession session) {
@@ -34,22 +34,13 @@ public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.fre
     }
 
     protected void createCommonAttributes(Theme theme, Locale locale, Properties messagesBundle, UriBuilder baseUriBuilder, LoginFormsPages page) {
-        super.createCommonAttributes(theme, locale, messagesBundle,baseUriBuilder,page);
+        super.createCommonAttributes(theme, locale, messagesBundle, baseUriBuilder, page);
+
+        attributes.put("olSettings", new OLSettingsBean(realm));
+
         if (page == LOGIN) {
-            String attemptedName = "";
-            Boolean hasCredentials = false;
             UserModel user = context.getUser();
-            if (user != null) {
-                if (user.getFirstName() != null && user.getLastName() != null) {
-                    attemptedName = user.getFirstName().concat(" ").concat(user.getLastName());
-                }
-
-                Stream<CredentialModel> credentials = user.credentialManager().getStoredCredentialsStream();
-                hasCredentials = credentials.count() > 0;
-
-            }
-            this.attributes.put("attemptedName", attemptedName);
-            this.attributes.put("hasCredentials", hasCredentials);
+            attributes.put("loginAttempt", new OLLoginAttemptBean(user));
         }
     }
 }
