@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #
 
+set -eux
+
 SCRIPT_DIR=$( dirname -- "${BASH_SOURCE[0]}" )
 
 pushd "$SCRIPT_DIR/.." || exit 1

@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "header">
-        <#if attemptedName??>
+        <#if (attemptedName!"")?has_content>
             ${msg("loginGreeting")} ${attemptedName}!
         <#else>
             ${msg("loginAccountTitle")}
