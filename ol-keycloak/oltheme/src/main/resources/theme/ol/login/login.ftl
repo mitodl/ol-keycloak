@@ -1,8 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "header">
-        <#if (attemptedName!"")?has_content>
-            ${msg("loginGreeting")} ${attemptedName}!
+        <#if loginAttempt.userFullname?has_content>
+            ${msg("loginGreeting")} ${loginAttempt.userFullname}!
         <#else>
             ${msg("loginAccountTitle")}
         </#if>
@@ -10,7 +10,7 @@
         <div id="kc-form">
           <div id="kc-form-wrapper">
             <#if realm.password && !social.providers??>
-                <#if hasCredentials>
+                <#if !loginAttempt.needsPassword>
                     <form id="kc-form-login" class="${properties.kcFormClass!} onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                         <#if !usernameHidden??>
                             <div class="${properties.kcFormGroupClass!}">

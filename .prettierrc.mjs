@@ -4,7 +4,8 @@
 const config = {
   overrides: [
     {
-      files: ["*.ftl"],
+      // TODO: prettier doesn't handle MJML syntax well
+      // files: ["*.ftl"],
       options: {
         parser: "html",
       },

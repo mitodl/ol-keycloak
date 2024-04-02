@@ -3,3 +3,9 @@ ol-keycloak/oltheme/target/*
 .DS_Store
 plugins/
 node_modules/
+
+
+# java
+.classpath
+.project
+.settings/
