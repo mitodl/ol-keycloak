@@ -248,11 +248,6 @@ a.pf-v5-c-button:visited {
   letter-spacing: -0.1px;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 /* footer styles END */
 
 #input-error {

@@ -15,9 +15,15 @@
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         devenv.shells.default = {
-          languages.java = {
-            enable = true;
-            maven.enable = true;
+          packages = [
+            pkgs.coreutils
+          ];
+          languages = {
+            java = {
+              enable = true;
+              maven.enable = true;
+            };
+            javascript.enable = true;
           };
         };
       };

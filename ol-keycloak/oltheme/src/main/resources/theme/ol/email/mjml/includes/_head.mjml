@@ -1,0 +1,13 @@
+<mj-head>
+  <mj-font
+    name="Inter"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+  />
+  <mj-attributes>
+    <mj-all font-family="Inter, Arial" font-size="13px" />
+  </mj-attributes>
+  <mj-style>
+    .logo-text a, .logo-textd .logo-text a, :visited, .logo-text a:hover,
+    .logo-text a:active { text-decoration: none; color: #261918; }
+  </mj-style>
+</mj-head>
