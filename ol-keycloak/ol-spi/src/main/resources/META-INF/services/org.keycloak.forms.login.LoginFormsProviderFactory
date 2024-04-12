@@ -1,1 +1,1 @@
-forms.login.freemarker.FreeMarkerLoginFormsProviderFactory
+edu.mit.keycloak.forms.login.freemarker.OLFreeMarkerLoginFormsProviderFactory
