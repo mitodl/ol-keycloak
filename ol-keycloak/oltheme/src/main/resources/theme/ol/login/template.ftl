@@ -81,7 +81,7 @@
       <header class="pf-v5-c-login__main-header">
         <div class="pf-v5-u-mb-2xl">
           <h1 class="pf-v5-c-title pf-m-4xl">
-            <a href="${olSettings.homeUrl}" class="logo-link pf-v5-u-display-flex pf-v5-u-justify-content-center">
+            <a href="https://mit.edu" class="logo-link pf-v5-u-display-flex pf-v5-u-justify-content-center">
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 1680 1040" enable-background="new 0 0 1680 1040" xml:space="preserve">
                 <path d="M880,880h160V400H880V880z M1120,320h400V160h-400V320z M880,160.00003h160v160H880V160.00003z M640,880h160V160H640V880z
