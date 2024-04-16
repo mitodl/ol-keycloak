@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package edu.mit.keycloak.forms.login.freemarker;
+package forms.login.freemarker;
 
 import org.keycloak.forms.login.LoginFormsProvider;
 import org.keycloak.models.KeycloakSession;
 
-public class OLFreeMarkerLoginFormsProviderFactory extends org.keycloak.forms.login.freemarker.FreeMarkerLoginFormsProviderFactory {
+public class FreeMarkerLoginFormsProviderFactory extends org.keycloak.forms.login.freemarker.FreeMarkerLoginFormsProviderFactory {
 
     @Override
     public LoginFormsProvider create(KeycloakSession session) {
