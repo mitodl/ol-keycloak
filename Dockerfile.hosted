@@ -1,4 +1,4 @@
-# Build with something like: 
+# Build with something like:
 #  docker build -f ./Dockerfile.hosted --build-arg $(cat .keycloak_upstream_tag) --platform=linux/amd64 .
 FROM quay.io/keycloak/keycloak:24.0@sha256:0d71412ed56b5f66f7e922efc0c3ff73b3f54ba2fe84fedb5e281a1f90b95bd6
 
@@ -6,7 +6,7 @@ COPY ol-keycloak/oltheme/src/main/resources/theme/ /opt/keycloak/themes/
 #COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
 COPY plugins/*.jar /opt/keycloak/providers/
 RUN /opt/keycloak/bin/kc.sh build
-# All env vars for hosted instances should be specified in 
+# All env vars for hosted instances should be specified in
 # .env in the ol-infrastructure repo.
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
