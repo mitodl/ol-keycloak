@@ -10,15 +10,17 @@
                     <div class="${properties.kcFormGroupClass!} no-bottom-margin">
                         <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                         <div class="${properties.kcInputGroup!}">
-                            <div class="pf-v5-u-display-flex ${properties.kcInputClass!}">
-                                <input tabindex="2" id="password" name="password"
+                            <div class="pf-v5-u-display-flex ${properties.kcInputClass!} password-toggle-field">
+                                <input id="password" name="password"
                                        type="password" autocomplete="on" autofocus
                                        aria-invalid="<#if messagesPerField.existsError('password')>true</#if>"
                                 />
-                                <button class="pf-v5-c-button pf-m-plain pf-v5-u-ml-auto" type="button" aria-label="${msg('showPassword')}"
-                                        aria-controls="password"  data-password-toggle
-                                        data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
-                                </button>
+                                <div class="toggle-password-button">
+                                    <button class="pf-v5-c-button pf-m-plain pf-v5-u-ml-auto" type="button" aria-label="${msg('showPassword')}"
+                                            aria-controls="password"  data-password-toggle
+                                            data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <#if messagesPerField.existsError('password')>
@@ -33,14 +35,14 @@
                         </div>
                         <div class="${properties.kcFormOptionsWrapperClass!}">
                             <#if realm.resetPasswordAllowed>
-                                <span><a tabindex="5"
+                                <span><a
                                          href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
                             </#if>
                         </div>
                     </div>
 
                     <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                        <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                     </div>
                 </form>
             </div>

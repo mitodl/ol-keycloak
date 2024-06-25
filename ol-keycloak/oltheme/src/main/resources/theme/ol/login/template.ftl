@@ -81,7 +81,7 @@
       <header class="pf-v5-c-login__main-header">
         <div class="pf-v5-u-mb-2xl">
           <h1 class="pf-v5-c-title pf-m-4xl">
-            <a href="${(olSettings.homeUrl)!"#"}" class="logo-link pf-v5-u-display-flex pf-v5-u-justify-content-center">
+            <a href="${(olSettings.homeUrl)!"#"}" class="logo-link pf-v5-u-display-flex">
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 1680 1040" enable-background="new 0 0 1680 1040" xml:space="preserve">
                 <path d="M880,880h160V400H880V880z M1120,320h400V160h-400V320z M880,160.00003h160v160H880V160.00003z M640,880h160V160H640V880z
@@ -107,16 +107,6 @@
         </#if>
 
         <h2 class="pf-v5-c-title pf-m-3xl"><#nested "header"></h2>
-
-        <#if auth?has_content && auth.showUsername() && !auth.showResetCredentials()>
-            <div>
-                <#nested "show-username">
-
-                <div id="kc-username" class="${properties.kcFormGroupClass!}">
-                    <label id="kc-attempted-username" class="pf-v5-u-font-size-sm">${auth.attemptedUsername}</label>
-                </div>
-            </div>
-        </#if>
 
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
         <div class="pf-v5-c-login__main-header-utilities">
@@ -210,8 +200,7 @@
           <div id="copywrite">
               <span>
                 ©${.now?string('yyyy')} Massachusetts Institute of Technology, All Rights Reserved.
-                <a href="#">${msg("registerTermsOfService")}</a> ${msg("and")}
-                <a href="#">${msg("registerPrivacyPolicy")}</a>
+                <a href="${olSettings.privacyPolicyUrl}">${msg("registerPrivacyPolicy")}</a>
               </span>
           </div>
       </footer>
