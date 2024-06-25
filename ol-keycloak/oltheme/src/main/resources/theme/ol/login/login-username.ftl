@@ -13,7 +13,7 @@
                                 <label for="username"
                                        class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
-                                <input tabindex="1" id="username"
+                                <input id="username"
                                        aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"
                                        class="${properties.kcInputClass!}" name="username"
                                        value="${(login.username!'')}"
@@ -33,10 +33,10 @@
                                     <div class="checkbox">
                                         <label>
                                             <#if login.rememberMe??>
-                                                <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"
+                                                <input  id="rememberMe" name="rememberMe" type="checkbox"
                                                        checked> ${msg("rememberMe")}
                                             <#else>
-                                                <input tabindex="3" id="rememberMe" name="rememberMe"
+                                                <input  id="rememberMe" name="rememberMe"
                                                        type="checkbox"> ${msg("rememberMe")}
                                             </#if>
                                         </label>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                            <input tabindex="4"
+                            <input
                                    class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
                                    name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                         </div>
@@ -62,7 +62,7 @@
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <span>${msg("noAccount")} <a  href="${url.registrationUrl}">${msg("doRegister")}</a></span>
             </div>
         </#if>
     </#if>

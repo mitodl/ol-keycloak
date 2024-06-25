@@ -1,21 +1,83 @@
 :where(:root) {
-  --Brand-Red: #a31f34;
-  --Brand-Blue: #03152d;
+  /* MIT brand colors */
+  --Brand-MIT-Red: #750014;
 
+  --Brand-Black: #000000;
+  --Brand-White: #FFFFFF;
+
+  --Brand-Blue: #03152D;
+  --Brand-Bright-Red: #FF1423;
+  --Brand-Dark-Gray-2: #212326;
+  --Brand-Dark-Gray-1: #40464C;
+  --Brand-Dark-Silver-Gray: #626A73;
+  --Brand-Silver-Gray: #8B959E;
+  --Brand-Light-Silver-Gray: #B8C2CC;
+  --Brand-Light-Gray-2: #DDE1E6;
+  --Brand-Light-Gray-1: #F3F4F8;
+  --Brand-Dark-Pink: #750062;
+  --Brand-Pink: #FF14F0;
+  --Brand-Light-Pink: #FFB3FF;
+  --Brand-Dark-Purple: #3E006B;
+  --Brand-Purple: #93F;
+  --Brand-Light-Purple: #BFB3FF;
+  --Brand-Dark-Blue: #002896;
+  --Brand-Blue: #1966FF;
+  --Brand-Light-Blue: #99EBFF;
+  --Brand-Dark-Green: #004D1A;
+  --Brand-Green: #00AD00;
+  --Brand-Light-Green: #AF3;
+  --Brand-Dark-Red: #83192A;
+  --Brand-Red: #A31F34;
+  --Brand-Light-Red: #D02E44;
+  --Brand-Orange: #FAB005;
+  --Brand-Yellow: #FFEB00;
+
+
+ /* global overrides */
   --pf-v5-global--link--Color: var(--Brand-Red);
+  --pf-v5-global--link--Color--hover: var(--Brand-Red);
 
-  --pf-v5-global--link--TextDecoration: underline;
+  --pf-v5-global--danger-color--100: var(--Brand-Light-Red);
+
 }
 
 .pf-v5-c-alert {
-  border-radius: 3px;
-  border: 0;
-  background: #ffe8e9;
-  color: #750014;
+  border-radius: 4px;
+  border: 2px solid var(--Brand-Dark-Gray-2);
+
+  --pf-v5-c-alert--m-inline--m-danger--BackgroundColor: var(--Brand-White);
+}
+
+.pf-v5-c-alert.pf-m-danger {
+  border-color: var(--Brand-Light-Red);
+  --pf-v5-c-alert__icon--Color: var(--Brand-Light-Red);
+  --pf-v5-c-alert__title--Color: var(--Brand-Dark-Gray-2);
 }
 
 .pf-v5-c-login {
+  --pf-v5-c-login__container--MaxWidth: 440px;
+
+  --pf-v5-c-login__main-header--PaddingRight: 16px;
+  --pf-v5-c-login__main-header--PaddingLeft: 16px;
+  --pf-v5-c-login__main-header--PaddingTop: 80px;
+
   --pf-v5-c-login__main-body--PaddingBottom: 0;
+
+  --pf-v5-c-login__main-body--PaddingRight: 16px;
+  --pf-v5-c-login__main-body--PaddingLeft: 16px;
+}
+
+@media (max-width: 500px) {
+
+  .pf-v5-c-login .pf-v5-c-login__main-header {
+    padding-top: 10px;
+  }
+}
+
+.pg.v5-c-title {
+  --pf-v5-c-title--m-3xl--FontSize: 24px;
+  --pf-v5-c-title--m-3xl--FontWeight: 700;
+  --pf-v5-c-title--m-3xl--LineHeight: 30px;
 }
 
 .pf-v5-c-form {
@@ -29,8 +91,22 @@
 
 .pf-v5-c-form-control {
   border-radius: 4px;
-  border: 1px solid #d5dae1;
-  background: var(--White, #fff);
+  border: 0;
+  background: var(--Brand-White);
+  color: var(--Brand-Light-Silver-Gray);
+  -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
+  -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
+  box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
+}
+
+.pf-v5-c-form-control:focus, .pf-v5-c-form-control:hover, .pf-v5-c-form-control:active {
+  border-width: 2px;
+  padding: 0;
+  color: var(--Brand-Dark-Gray-2);
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
+  -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
+  box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
 }
 
 .pf-v5-c-form-control::after {
@@ -38,17 +114,20 @@
 }
 
 .pf-v5-c-button {
-  --pf-v5-c-button--m-primary--Color: #ffffff;
-  --pf-v5-c-button--m-primary--BackgroundColor: var(--Brand-Blue);
+  --pf-v5-c-button--m-primary--Color: var(--Brand-White);
+  --pf-v5-c-button--m-primary--BackgroundColor: var(--Brand-MIT-Red);
+  --pf-v5-c-button--m-primary--hover--BackgroundColor: var(--Brand-Red);
+  --pf-v5-c-button--m-primary--active--BackgroundColor: var(--Brand-Red);
+  --pf-v5-c-button--m-primary--focus--BackgroundColor: var(--Brand-Red);
 
-  --pf-v5-c-button--m-secondary--Color: #03152d;
-  --pf-v5-c-button--m-secondary--after--BorderColor: #d5dae1;
+  --pf-v5-c-button--m-secondary--Color: var(--Brand-Black);
+  --pf-v5-c-button--m-secondary--after--BorderColor: var(--Brand-Light-Silver-Gray);
 
-  --pf-v5-c-button--m-secondary--focus--Color: var(--Brand-Blue);
-  --pf-v5-c-button--m-secondary--focus--after--BorderColor: var(--Brand-Blue);
+  --pf-v5-c-button--m-secondary--focus--Color: var(--Brand-Black);
+  --pf-v5-c-button--m-secondary--focus--after--BorderColor: var(--Brand-Dark-Silver-Gray);
 
-  --pf-v5-c-button--m-secondary--hover--Color: var(--Brand-Blue);
-  --pf-v5-c-button--m-secondary--hover--after--BorderColor: var(--Brand-Blue);
+  --pf-v5-c-button--m-secondary--hover--Color: var(--Brand-Black);
+  --pf-v5-c-button--m-secondary--hover--after--BorderColor: var(--Brand-Dark-Silver-Gray);
 }
 
 .pf-v5-c-button:hover {
@@ -64,21 +143,24 @@ a.pf-v5-c-button:visited {
   text-decoration-line: none;
 }
 
+
+.pf-v5-c-title.pf-m-3xl {
+  color: var(--Brand-Dark-Gray-1)
+}
+
 .login-pf {
-  background: #ffffff;
+  background: var(--Brand-White);
   font-family: Inter;
-  max-width: 477px;
-  margin: auto;
 }
 
 .login-pf body {
-  background: #ffffff;
+  background: var(--Brand-White);
+  color: var(--Brand-Dark-Gray-1);
 }
 
-@media (max-width: 768px) {
-  .login-pf {
-    margin: 0px 10px 0px 10px;
-  }
+main {
+  margin: auto;
+  padding: 0 16px 16px;
 }
 
 .login-pf #kc-header {
@@ -193,6 +275,20 @@ a.pf-v5-c-button:visited {
   margin: auto;
 }
 
+#social-touchstone-idp {
+  display: flex;
+  align-items: center;
+}
+
+#social-touchstone-idp svg {
+  margin-left: auto;
+}
+
+#social-touchstone-idp span {
+  margin-right: auto;
+  font-weight: 500;
+}
+
 .col-md-10 {
   width: 100%;
 }
@@ -284,15 +380,23 @@ a.pf-v5-c-button:visited {
   margin-left: 0.25em;
 }
 
-.g-recaptcha {
-  width: 100%;
-}
 
-#password-input-group {
+.password-toggle-field {
   position: relative;
 }
 
-.toggle-password-button {
+.password-toggle-field .toggle-password-button {
   position: absolute;
   right: 1px;
+}
+
+.instruction {
+  color: var(--Brand-Dark-Gray-1);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#kc-form-legal-options {
+  color: var(--Brand-Dark-Silver-Gray);
 }

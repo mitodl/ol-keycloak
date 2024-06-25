@@ -86,11 +86,19 @@
                         <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                     </div>
                     <div class="${properties.kcInputWrapperClass!}">
-                        <div class="${properties.kcInputGroup!}">
+                        <div class="${properties.kcInputGroup!} password-toggle-field">
                             <input type="password" id="password" class="${properties.kcInputClass!}" name="password"
                                    autocomplete="new-password"
                                    aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                             />
+                            <div class="toggle-password-button">
+                                <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
+                                    aria-controls="password"  data-password-toggle
+                                    data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
+                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                    <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
 
 
@@ -108,11 +116,19 @@
                                class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                     </div>
                     <div class="${properties.kcInputWrapperClass!}">
-                        <div class="${properties.kcInputGroup!}">
+                        <div class="${properties.kcInputGroup!} password-toggle-field">
                             <input type="password" id="password-confirm" class="${properties.kcInputClass!}"
                                    name="password-confirm"
                                    aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                             />
+                            <div class="toggle-password-button">
+                                <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
+                                    aria-controls="password-confirm"  data-password-toggle
+                                    data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
+                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                    <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <#if messagesPerField.existsError('password-confirm')>
@@ -159,7 +175,7 @@
 
             <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
                 <div class="${properties.kcFormOptionsWrapperClass!}">
-      <span class="pf-v5-u-font-size-xs">${msg('registerLegalAgreementText')} <a href="#" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerTermsOfService"))?no_esc}</a> ${msg("and")} <a href="#" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a>.</span>
+      <span class="pf-v5-u-font-size-xs">${msg('registerLegalAgreementText')} <a href="${olSettings.privacyPolicyUrl!"#"}" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a>.</span>
                 </div>
             </div>
         </div>

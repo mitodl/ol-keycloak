@@ -5,8 +5,6 @@
     <#elseif section = "form">
         <p class="instruction">
           ${msg("emailVerifyInstruction1")}
-          <br/>
-          <b>${user.email}</b>
         </p>
     <#elseif section = "info">
         <p class="pf-v5-u-my-md">${msg("emailVerifyInstruction2")}</p>
