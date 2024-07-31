@@ -108,7 +108,7 @@
       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;border-radius:8px;">
         <tbody>
           <tr>
-            <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+            <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
               <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
               <div style="margin:0px auto;max-width:600px;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
@@ -157,12 +157,12 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <td align="left" style="font-size:0px;padding:12px 25px;word-break:break-word;">
                                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                     <tbody>
                                       <tr>
-                                        <td align="center" bgcolor="#283343" role="presentation" style="border:none;border-radius:5px;cursor:auto;mso-padding-alt:10px 25px;background:#283343;" valign="middle">
-                                          <a href="${link}" style="display:inline-block;background:#283343;color:#ffffff;font-family:Inter, Arial;font-size:13px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:5px;" target="_blank"> Reset Password </a>
+                                        <td align="center" bgcolor="#A31F34" role="presentation" style="border:none;border-radius:4px;cursor:auto;mso-padding-alt:10px 25px;background:#A31F34;" valign="middle">
+                                          <a href="${link}" style="display:inline-block;background:#A31F34;color:#FFFFFF;font-family:Inter, Arial;font-size:14px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:4px;" target="_blank"> Reset Password </a>
                                         </td>
                                       </tr>
                                     </tbody>
