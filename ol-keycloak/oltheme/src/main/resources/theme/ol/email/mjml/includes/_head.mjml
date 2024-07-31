@@ -7,6 +7,8 @@
     <mj-all font-family="Inter, Arial" font-size="13px" />
   </mj-attributes>
   <mj-style>
+    h1 { color: #212326; }
+    .email-body { padding-top: 20px; }
     .logo-text a, .logo-textd .logo-text a, :visited, .logo-text a:hover,
     .logo-text a:active { text-decoration: none; color: #261918; }
   </mj-style>

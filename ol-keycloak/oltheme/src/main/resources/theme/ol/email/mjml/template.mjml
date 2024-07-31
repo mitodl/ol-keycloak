@@ -1,14 +1,18 @@
 <mjml>
   <mj-include path="./includes/_head.mjml" />
-  <mj-body>
-    <mj-include path="./includes/header.mjml" />
+  <mj-body background-color="#F3F4F8" css-class="email-body">
+    <mj-wrapper background-color="#FFFFFF" border-radius="8px" padding="0">
+      <mj-include path="./includes/header.mjml" />
 
-    <mj-section>
-      <mj-column>
-        <mj-text font-size="13px"><#nested></mj-text>
-      </mj-column>
-    </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text font-size="13px">
+            <#nested>
+          </mj-text>
+        </mj-column>
+      </mj-section>
 
-    <mj-include path="./includes/footer.mjml" />
+      <mj-include path="./includes/footer.mjml" />
+    </mj-wrapper>
   </mj-body>
 </mjml>
