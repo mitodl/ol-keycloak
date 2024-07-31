@@ -82,18 +82,6 @@
 
   </style>
   <style type="text/css">
-    @media only screen and (max-width:479px) {
-      table.mj-full-width-mobile {
-        width: 100% !important;
-      }
-
-      td.mj-full-width-mobile {
-        width: auto !important;
-      }
-    }
-
-  </style>
-  <style type="text/css">
     h1 {
       color: #212326;
     }
@@ -128,29 +116,14 @@
                   <tbody>
                     <tr>
                       <td style="border-bottom:1px solid #DDE1E6;direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
-                        <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:600px;" ><![endif]-->
-                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
-                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%">
+                        <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                             <tbody>
                               <tr>
                                 <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-                                    <tbody>
-                                      <tr>
-                                        <td style="width:64px;">
-                                          <a href="https://mit.edu" target="_blank">
-                                            <img alt="MIT" src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" style="border:0;display:block;outline:none;text-decoration:none;height:40px;width:100%;font-size:13px;" width="64" height="40" />
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:left;color:#000000;">
-                                    <h1 class="logo-text">
+                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:center;color:#000000;"><img src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" href="https://mit.edu" width="64px" height="40px" alt="MIT" style="vertical-align: middle;" />
+                                    <h1 class="logo-text" style="vertical-align: middle; display: inline;">
                                       <a href="${msg(" homeUrl")}">Open</a>
                                     </h1>
                                   </div>
