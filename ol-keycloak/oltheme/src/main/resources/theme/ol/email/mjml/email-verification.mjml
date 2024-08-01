@@ -10,9 +10,7 @@
             <h1>Verify Your Email</h1>
             <p>
               Thank you for creating an account with ${realmName}. Please complete
-              the account verification process by verifying your email.
-            </p>
-            <p>To verify your email, please click this link:</p>
+              the account verification process by clicking this link:</p>
           </mj-text>
           <mj-button href="${link}" border-radius="4px" background-color="#A31F34" align="left" font-weight="bold"
             font-size="14px" color="#FFFFFF" padding="12px 25px">

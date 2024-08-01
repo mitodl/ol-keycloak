@@ -1,5 +1,5 @@
 <mj-section>
-  <mj-column>
+  <mj-column padding="0">
     <mj-divider
       border-width="1px"
       border-style="solid"
@@ -10,8 +10,9 @@
       font-size="12px"
       align="center"
       color="#212326"
+      padding-bottom="20px"
     >
-      <b>MIT</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA
+      <b>MIT ${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA
     </mj-text>
   </mj-column>
 </mj-section>

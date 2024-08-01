@@ -86,7 +86,7 @@
     }
 
     .email-body {
-      padding-top: 20px;
+      padding: 20px 0;
     }
 
     .logo-text a,
@@ -121,7 +121,7 @@
                             <tbody>
                               <tr>
                                 <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:center;color:#000000;"><img src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" href="https://mit.edu" width="64px" height="40px" alt="MIT" style="vertical-align: middle;" />
+                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:center;color:#000000;"><img src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" href="https://mit.edu" width="64px" height="40px" alt="MIT" style="vertical-align: middle;" />
                                     <h1 class="logo-text" style="vertical-align: middle; display: inline;">
                                       <a href="${msg(" homeUrl")}">Open</a>
                                     </h1>
@@ -149,7 +149,7 @@
                             <tbody>
                               <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:left;color:#000000;">
+                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:left;color:#000000;">
                                     <h1>Reset Your Password</h1>
                                     <p> You're receiving this because you requested a password reset for your user account at ${realmName}. </p>
                                     <p>Please go to the following page and choose a new password:</p>
@@ -171,7 +171,7 @@
                               </tr>
                               <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:1;text-align:left;color:#000000;">
+                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:left;color:#000000;">
                                     <p> If the button doesn't work, copy and paste this link into your web browser: </p>
                                     <p>${link}</p>
                                   </div>
@@ -194,19 +194,27 @@
                       <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
                         <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
                         <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                             <tbody>
                               <tr>
-                                <td align="center" style="font-size:0px;padding:20px;word-break:break-word;">
-                                  <p style="border-top:solid 1px #DDE1E6;font-size:1px;margin:0px auto;width:100%;">
-                                  </p>
-                                  <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #DDE1E6;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+                                <td style="vertical-align:top;padding:0;">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td align="center" style="font-size:0px;padding:20px;word-break:break-word;">
+                                          <p style="border-top:solid 1px #DDE1E6;font-size:1px;margin:0px auto;width:100%;">
+                                          </p>
+                                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #DDE1E6;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px" ><tr><td style="height:0;line-height:0;"> &nbsp;
 </td></tr></table><![endif]-->
-                                </td>
-                              </tr>
-                              <tr>
-                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:12px;line-height:1;text-align:center;color:#212326;"><b>MIT</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
+                                          <div style="font-family:Inter, Arial;font-size:12px;line-height:18px;text-align:center;color:#212326;"><b>MIT ${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                                 </td>
                               </tr>
                             </tbody>

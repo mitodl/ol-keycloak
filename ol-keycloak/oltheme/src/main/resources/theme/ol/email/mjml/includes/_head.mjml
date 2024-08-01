@@ -4,11 +4,12 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
   />
   <mj-attributes>
+    <mj-text line-height="18px"/>
     <mj-all font-family="Inter, Arial" font-size="13px" />
   </mj-attributes>
   <mj-style>
     h1 { color: #212326; }
-    .email-body { padding-top: 20px; }
+    .email-body { padding: 20px 0; }
     .logo-text a, .logo-textd .logo-text a, :visited, .logo-text a:hover,
     .logo-text a:active { text-decoration: none; color: #261918; }
   </mj-style>
