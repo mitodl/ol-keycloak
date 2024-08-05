@@ -142,7 +142,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;">
                   <tbody>
                     <tr>
-                      <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                      <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
                         <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
                         <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
@@ -156,7 +156,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td align="left" style="font-size:0px;padding:12px 25px;word-break:break-word;">
+                                <td align="left" style="font-size:0px;padding:0 25px;word-break:break-word;">
                                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                     <tbody>
                                       <tr>
@@ -189,7 +189,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
                   <tbody>
                     <tr>
-                      <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                      <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
                         <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
                         <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">

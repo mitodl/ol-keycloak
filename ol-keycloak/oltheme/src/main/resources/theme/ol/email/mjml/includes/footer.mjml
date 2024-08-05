@@ -1,4 +1,4 @@
-<mj-section>
+<mj-section padding="0">
   <mj-column padding="0">
     <mj-divider
       border-width="1px"
