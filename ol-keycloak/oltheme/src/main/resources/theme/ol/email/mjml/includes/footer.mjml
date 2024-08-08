@@ -12,7 +12,7 @@
       color="#212326"
       padding-bottom="20px"
     >
-      <b>MIT ${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA
+      <b>${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA
     </mj-text>
   </mj-column>
 </mj-section>
