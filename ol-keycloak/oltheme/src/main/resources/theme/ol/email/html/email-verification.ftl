@@ -121,11 +121,9 @@
                             <tbody>
                               <tr>
                                 <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:center;color:#000000;"><img src="${url.resourcesUrl}/img/mit_logo_std_rgb_black.png" href="https://mit.edu" width="64px" height="40px" alt="MIT" style="vertical-align: middle;" />
-                                    <h1 class="logo-text" style="vertical-align: middle; display: inline;">
-                                      <a href="${msg(" homeUrl")}">Open</a>
-                                    </h1>
-                                  </div>
+                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:center;color:#000000;"><a href="${msg(" homeUrl")}">
+                                      <img src="${url.resourcesUrl}/img/MITlearn.png" height="29" width="103" alt="MIT Learn" />
+                                    </a></div>
                                 </td>
                               </tr>
                             </tbody>
@@ -208,7 +206,7 @@
                                       </tr>
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
-                                          <div style="font-family:Inter, Arial;font-size:12px;line-height:18px;text-align:center;color:#212326;"><b>MIT ${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
+                                          <div style="font-family:Inter, Arial;font-size:12px;line-height:18px;text-align:center;color:#212326;"><b>${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
                                         </td>
                                       </tr>
                                     </tbody>
