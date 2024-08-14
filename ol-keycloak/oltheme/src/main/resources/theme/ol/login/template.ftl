@@ -41,7 +41,7 @@
             checkCookiesAndSetTimer(
               "${authenticationSession.authSessionId}",
               "${authenticationSession.tabId}",
-              "${url.ssoLoginInOtherTabsUrl}
+              "${url.ssoLoginInOtherTabsUrl}"
         box-shadow: 0px 2px 2px 0px rgba(3, 21, 45, 0.05);
             );
         </script>
