@@ -154,8 +154,12 @@
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegisterSubmit")}"/>
                 </div>
+                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+                    <div class="${properties.kcFormOptionsWrapperClass!}">
+                        <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
+                    </div>
+                </div>
             </div>
-
         </form>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
     </#if>
@@ -167,12 +171,6 @@
     </#if>
     <#if section = "footer">
         <div class="${properties.kcFormGroupClass!}">
-            <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                <div class="${properties.kcFormOptionsWrapperClass!}">
-                    <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
-                </div>
-            </div>
-
             <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
                 <div class="${properties.kcFormOptionsWrapperClass!}">
       <span class="pf-v5-u-font-size-xs">${msg('registerLegalAgreementText')} <a href="${olSettings.privacyPolicyUrl!"#"}" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a>.</span>

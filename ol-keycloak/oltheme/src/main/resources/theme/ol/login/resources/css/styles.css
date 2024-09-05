@@ -39,6 +39,10 @@
 
   --pf-v5-global--danger-color--100: var(--Brand-Light-Red);
 
+  --pf-v5-global--FontFamily--text: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--heading: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--text--vf: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--heading--vf: "neue-haas-grotesk-text", sans-serif;
 }
 
 .pf-v5-c-alert {
@@ -68,7 +72,6 @@
 }
 
 @media (max-width: 500px) {
-
   .pf-v5-c-login .pf-v5-c-login__main-header {
     padding-top: 10px;
   }
@@ -81,7 +84,7 @@
 }
 
 .pf-v5-c-form {
-  --pf-v5-c-form--GridGap: 0.3rem;
+  --pf-v5-c-form--GridGap: 24px;
 }
 
 .pf-v5-c-login__main-footer {
@@ -90,6 +93,7 @@
 }
 
 .pf-v5-c-form-control {
+  margin-top: 4px;
   border-radius: 4px;
   border: 0;
   background: var(--Brand-White);
@@ -114,6 +118,12 @@
 }
 
 .pf-v5-c-button {
+  --pf-v5-c-button--FontWeight: 500;
+  --pf-v5-c-button--FontSize: 16px;
+
+  --pf-v5-c-button--PaddingTop: 16px;
+  --pf-v5-c-button--PaddingBottom: 16px;
+
   --pf-v5-c-button--m-primary--Color: var(--Brand-White);
   --pf-v5-c-button--m-primary--BackgroundColor: var(--Brand-MIT-Red);
   --pf-v5-c-button--m-primary--hover--BackgroundColor: var(--Brand-Red);
@@ -145,12 +155,12 @@ a.pf-v5-c-button:visited {
 
 
 .pf-v5-c-title.pf-m-3xl {
-  color: var(--Brand-Dark-Gray-1)
+  color: var(--Brand-Dark-Gray-2);
+  font-size: 24px;
 }
 
 .login-pf {
   background: var(--Brand-White);
-  font-family: Inter;
 }
 
 .login-pf body {
@@ -199,7 +209,6 @@ main {
   text-edge: cap;
 
   /* Heading */
-  font-family: Inter;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -213,7 +222,6 @@ main {
   text-edge: cap;
 
   /* Heading */
-  font-family: Inter;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -227,7 +235,6 @@ main {
   text-edge: cap;
 
   /* Subheading */
-  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -263,6 +270,7 @@ main {
 .pf-v5-c-form__label-text {
   font-weight: normal !important;
   font-size: 16px;
+  color: var(--Brand-Dark-Gray-2);
 }
 
 #kc-header {
@@ -299,7 +307,6 @@ main {
 }
 
 .login-pf-page .login-pf-signup span {
-  font-family: Inter;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -313,10 +320,15 @@ main {
   display: inline-flex;
   padding: 96px 10px 50px 10px;
   justify-content: center;
+  color: var(--Brand-Dark-Silver-Gray);
   align-items: center;
   gap: 10px;
   width: 100%;
   flex-direction: row-reverse;
+}
+
+.copyright {
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
@@ -336,7 +348,6 @@ main {
   text-edge: cap;
 
   /* Default */
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -350,7 +361,6 @@ main {
   color: var(--Brand-Red);
   leading-trim: both;
   text-edge: cap;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -369,7 +379,7 @@ main {
 .separator::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid #d5dae1;
+  border-bottom: 1px solid var(--Brand-Dark-Gray-2);
 }
 
 .separator:not(:empty)::before {
@@ -388,6 +398,10 @@ main {
 .password-toggle-field .toggle-password-button {
   position: absolute;
   right: 1px;
+}
+
+.toggle-password-button .pf-v5-c-button {
+  padding: 12px;
 }
 
 .instruction {

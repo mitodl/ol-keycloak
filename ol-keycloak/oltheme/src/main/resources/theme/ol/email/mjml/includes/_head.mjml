@@ -1,11 +1,15 @@
 <mj-head>
+  <!--
+    Font files for Adobe Neue Haas Grotesk.
+    WARNING: This is linked to chudzick@mit.edu's Adobe account.
+  -->
   <mj-font
-    name="Inter"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    name="neue-haas-grotesk-text"
+    href="https://use.typekit.net/lbk1xay.css"
   />
   <mj-attributes>
     <mj-text line-height="18px"/>
-    <mj-all font-family="Inter, Arial" font-size="13px" />
+    <mj-all font-family="neue-haas-grotesk-text, sans-serif" font-size="13px" />
   </mj-attributes>
   <mj-style>
     h1 { color: #212326; }

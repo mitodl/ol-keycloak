@@ -6,6 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
+    <!--
+      Font files for Adobe Neue Haas Grotesk.
+      WARNING: This is linked to chudzick@mit.edu's Adobe account.
+    -->
+    <link rel="stylesheet" href="https://use.typekit.net/lbk1xay.css" />
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -45,9 +50,6 @@
             );
         </script>
     </#if>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap')
-    </style>
 </head>
 
 <body id="keycloak-bg" class="${properties.kcBodyClass!}">
@@ -107,7 +109,7 @@
             </div>
         </#if>
 
-        <h2 class="pf-v5-c-title pf-m-3xl"><#nested "header"></h2>
+        <h4 class="pf-v5-c-title pf-m-3xl"><#nested "header"></h4>
 
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
         <div class="pf-v5-c-login__main-header-utilities">
