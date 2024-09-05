@@ -1,6 +1,6 @@
 # Build with something like:
 #  docker build -f ./Dockerfile.hosted --build-arg $(cat .keycloak_upstream_tag) --platform=linux/amd64 .
-FROM quay.io/keycloak/keycloak:sha256:e5ceeb9f1954af5c1d66dd6ada9b9c744f35f87e763c94c3889d593517733c0b
+FROM quay.io/keycloak/keycloak:nightly@sha256:e5ceeb9f1954af5c1d66dd6ada9b9c744f35f87e763c94c3889d593517733c0b
 
 COPY ol-keycloak/oltheme/src/main/resources/theme/ /opt/keycloak/themes/
 #COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
