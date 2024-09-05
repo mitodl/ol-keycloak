@@ -43,6 +43,8 @@
   --pf-v5-global--FontFamily--heading: "neue-haas-grotesk-text", sans-serif;
   --pf-v5-global--FontFamily--text--vf: "neue-haas-grotesk-text", sans-serif;
   --pf-v5-global--FontFamily--heading--vf: "neue-haas-grotesk-text", sans-serif;
+
+  --pf-v5-global--LineHeight--md: 16px;
 }
 
 .pf-v5-c-alert {
@@ -64,6 +66,7 @@
   --pf-v5-c-login__main-header--PaddingRight: 16px;
   --pf-v5-c-login__main-header--PaddingLeft: 16px;
   --pf-v5-c-login__main-header--PaddingTop: 80px;
+  --pf-v5-c-login__main-header--PaddingBottom: 0;
 
   --pf-v5-c-login__main-body--PaddingBottom: 0;
 
@@ -169,8 +172,11 @@ a.pf-v5-c-button:visited {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   padding: 0 16px 16px;
+  gap: 24px;
 }
 
 .login-pf #kc-header {
@@ -315,19 +321,14 @@ main {
   color: #5f6368;
 }
 
-/* footer styles START */
 .footer {
   display: inline-flex;
-  padding: 96px 10px 50px 10px;
   justify-content: center;
   color: var(--Brand-Dark-Silver-Gray);
   align-items: center;
   gap: 10px;
   width: 100%;
   flex-direction: row-reverse;
-}
-
-.copyright {
   font-size: 12px;
 }
 
@@ -341,21 +342,6 @@ main {
   display: flex;
   gap: 10px;
 }
-
-.footer span {
-  color: #000;
-  leading-trim: both;
-  text-edge: cap;
-
-  /* Default */
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: -0.1px;
-}
-
-/* footer styles END */
 
 #input-error {
   color: var(--Brand-Red);

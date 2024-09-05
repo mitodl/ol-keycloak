@@ -192,19 +192,17 @@
               </div>
           </div>
         </#if>
-      </div>
-      <div class="pf-v5-c-login__main-footer">
         <#nested "socialProviders">
         <#nested "footer">
       </div>
       <footer class="footer">
-          <div id="footer-links">
-          </div>
-          <div id="copywrite">
+          <div id="copyright">
               <span>
-                ©${.now?string('yyyy')} Massachusetts Institute of Technology, All Rights Reserved.
-                <a href="${olSettings.privacyPolicyUrl}">${msg("registerPrivacyPolicy")}</a>
+                <em>${realm.displayName}</em> &#x2022; 77 Massachusetts Avenue &#x2022; Cambridge, MA 02139 &#x2022; USA
               </span>
+          </div>
+          <div id="footer-links">
+            <a href="${olSettings.privacyPolicyUrl}">${msg("registerPrivacyPolicy")}</a>
           </div>
       </footer>
     </main>
