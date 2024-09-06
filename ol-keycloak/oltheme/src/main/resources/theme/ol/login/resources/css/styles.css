@@ -61,17 +61,17 @@
 }
 
 .pf-v5-c-login {
-  --pf-v5-c-login__container--MaxWidth: 440px;
+  --pf-v5-c-login__container--MaxWidth: 600px;
 
-  --pf-v5-c-login__main-header--PaddingRight: 16px;
-  --pf-v5-c-login__main-header--PaddingLeft: 16px;
+  --pf-v5-c-login__main-header--PaddingRight: 32px;
+  --pf-v5-c-login__main-header--PaddingLeft: 32px;
   --pf-v5-c-login__main-header--PaddingTop: 80px;
   --pf-v5-c-login__main-header--PaddingBottom: 0;
 
   --pf-v5-c-login__main-body--PaddingBottom: 0;
 
-  --pf-v5-c-login__main-body--PaddingRight: 16px;
-  --pf-v5-c-login__main-body--PaddingLeft: 16px;
+  --pf-v5-c-login__main-body--PaddingRight: 32px;
+  --pf-v5-c-login__main-body--PaddingLeft: 32px;
 }
 
 @media (max-width: 500px) {

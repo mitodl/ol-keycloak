@@ -137,9 +137,13 @@
     <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
     <#elseif section="info">
       <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-        <div id="kc-registration-container">
-          <div id="kc-registration">
-            <span>${msg("noAccount")} <a href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+        <div id="kc-info" class="${properties.kcSignUpClass!}">
+          <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
+            <div id="kc-registration-container">
+              <div id="kc-registration">
+                <span>${msg("noAccount")} <a href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+              </div>
+            </div>
           </div>
         </div>
       </#if>
