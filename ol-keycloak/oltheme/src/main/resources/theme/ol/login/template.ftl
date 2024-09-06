@@ -198,7 +198,7 @@
       <footer class="footer">
           <div id="copyright">
               <span>
-                <em>${realm.displayName}</em> &#x2022; 77 Massachusetts Avenue &#x2022; Cambridge, MA 02139 &#x2022; USA
+                <strong>${realm.displayName}</strong> &#x2022; 77 Massachusetts Avenue &#x2022; Cambridge, MA 02139 &#x2022; USA
               </span>
           </div>
           <div id="footer-links">
