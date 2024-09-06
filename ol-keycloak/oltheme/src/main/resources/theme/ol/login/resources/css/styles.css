@@ -100,7 +100,7 @@
   border-radius: 4px;
   border: 0;
   background: var(--Brand-White);
-  color: var(--Brand-Light-Silver-Gray);
+  color: var(--Brand-Dark-Gray-2);
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
   -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
   box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
@@ -109,7 +109,6 @@
 .pf-v5-c-form-control:focus, .pf-v5-c-form-control:hover, .pf-v5-c-form-control:active {
   border-width: 2px;
   padding: 0;
-  color: var(--Brand-Dark-Gray-2);
   outline: none;
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
   -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
@@ -287,7 +286,7 @@ main {
 
 #kc-form-buttons {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   flex-direction: column;
   margin-block-start: 0 !important;
 }
@@ -401,6 +400,11 @@ main {
 }
 
 #kc-form-legal-options {
+  color: var(--Brand-Dark-Silver-Gray);
+}
+
+#kc-form-options {
+  font-size: 14px;
   color: var(--Brand-Dark-Silver-Gray);
 }
 
