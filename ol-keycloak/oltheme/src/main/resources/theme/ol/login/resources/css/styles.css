@@ -289,7 +289,7 @@ main {
   display: flex;
   gap: 4px;
   flex-direction: column;
-  margin-block-start: 0;
+  margin-block-start: 0 !important;
 }
 
 #kc-registration {
@@ -407,9 +407,27 @@ main {
   color: var(--Brand-Dark-Silver-Gray);
 }
 
+/*
+* upscale the recaptcha to match the form width
+* note that we also dynamically resize this in JS to get more accurate and to support mobile widths
+* */
+.g-recaptcha {
+  transform-origin: 0 0;
+  transform: scale(1.24);
+}
+
 .g-recaptcha iframe {
-  border: var(--Brand-Light-Silver-Gray);
+  /* tighter border-radius to crop out the black background at the corners */
   border-radius: 5px;
+  /* downsize the iframe to crop out black background on bottom and right of recaptcha */
   width: 302px;
   height: 76px;
+}
+/* undo some patternfly styles that are clobbering the layout */
+@media (min-width: 1200px) {
+  .pf-v5-c-login__container {
+    display: block;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
+  }
 }

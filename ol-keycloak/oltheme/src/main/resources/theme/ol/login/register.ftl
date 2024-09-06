@@ -162,6 +162,20 @@
             </div>
         </form>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
+        <script type="text/javascript">
+        function resizeRecaptcha() {
+            var recaptcha = document.querySelector(".g-recaptcha");
+            var parent = recaptcha.parentElement;
+            var newScaleFactor = parent.offsetWidth / 302;
+            recaptcha.style.transform = 'scale(' + newScaleFactor + ')';
+            recaptcha.style.transformOrigin = '0 0';
+            // transforms don't contribute to flow so we need to manually resize the parent to match
+            parent.style.height = (newScaleFactor * 76) + "px";
+        }
+
+        window.addEventListener("resize", resizeRecaptcha);
+        window.addEventListener("load", resizeRecaptcha);
+        </script>
     </#if>
     <#if section = "socialProviders" >
       <div class="separator pf-v5-u-py-md">
