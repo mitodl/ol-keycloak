@@ -145,7 +145,7 @@
             <#if recaptchaRequired??>
                 <div class="form-group">
                     <div class="${properties.kcInputWrapperClass!}">
-                        <div class="g-recaptcha" data-size="compact" data-sitekey="${recaptchaSiteKey}"></div>
+                        <div class="g-recaptcha" data-sitekey="${recaptchaSiteKey}" data-theme="light"></div>
                     </div>
                 </div>
             </#if>
@@ -154,10 +154,28 @@
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegisterSubmit")}"/>
                 </div>
+                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+                    <div class="${properties.kcFormOptionsWrapperClass!}">
+                        <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
+                    </div>
+                </div>
             </div>
-
         </form>
         <script type="module" src="${url.resourcesPath}/js/passwordVisibility.js"></script>
+        <script type="text/javascript">
+        function resizeRecaptcha() {
+            var recaptcha = document.querySelector(".g-recaptcha");
+            var parent = recaptcha.parentElement;
+            var newScaleFactor = parent.offsetWidth / 302;
+            recaptcha.style.transform = 'scale(' + newScaleFactor + ')';
+            recaptcha.style.transformOrigin = '0 0';
+            // transforms don't contribute to flow so we need to manually resize the parent to match
+            parent.style.height = (newScaleFactor * 76) + "px";
+        }
+
+        window.addEventListener("resize", resizeRecaptcha);
+        window.addEventListener("load", resizeRecaptcha);
+        </script>
     </#if>
     <#if section = "socialProviders" >
       <div class="separator pf-v5-u-py-md">
@@ -167,12 +185,6 @@
     </#if>
     <#if section = "footer">
         <div class="${properties.kcFormGroupClass!}">
-            <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                <div class="${properties.kcFormOptionsWrapperClass!}">
-                    <span>${msg('alreadyHaveAnAccountRegister')} <a href="${url.loginUrl}">${kcSanitize(msg("logInRegister"))?no_esc}</a></span>
-                </div>
-            </div>
-
             <div id="kc-form-legal-options" class="${properties.kcFormOptionsClass!}">
                 <div class="${properties.kcFormOptionsWrapperClass!}">
       <span class="pf-v5-u-font-size-xs">${msg('registerLegalAgreementText')} <a href="${olSettings.privacyPolicyUrl!"#"}" class="pf-v5-u-font-size-xs">${kcSanitize(msg("registerPrivacyPolicy"))?no_esc}</a>.</span>

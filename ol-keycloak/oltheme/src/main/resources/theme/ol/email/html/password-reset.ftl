@@ -58,9 +58,9 @@
     </style>
     <![endif]-->
   <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" type="text/css">
+  <link href="https://use.typekit.net/lbk1xay.css" rel="stylesheet" type="text/css">
   <style type="text/css">
-    @import url(https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap);
+    @import url(https://use.typekit.net/lbk1xay.css);
 
   </style>
   <!--<![endif]-->
@@ -99,6 +99,8 @@
     }
 
   </style>
+  <!-- Font files for Adobe Neue Haas Grotesk.
+    WARNING: This is linked to chudzick@mit.edu's Adobe account. -->
 </head>
 
 <body style="word-spacing:normal;background-color:#F3F4F8;">
@@ -121,7 +123,7 @@
                             <tbody>
                               <tr>
                                 <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:center;color:#000000;"><a href="${msg(" homeUrl")}">
+                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:center;color:#000000;"><a href="${msg(" homeUrl")}">
                                       <img src="${url.resourcesUrl}/img/MITlearn.png" height="29" width="103" alt="MIT Learn" />
                                     </a></div>
                                 </td>
@@ -147,7 +149,7 @@
                             <tbody>
                               <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:left;color:#000000;">
+                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:left;color:#000000;">
                                     <h1>Reset Your Password</h1>
                                     <p> You're receiving this because you requested a password reset for your user account at ${realmName}. </p>
                                     <p>Please go to the following page and choose a new password:</p>
@@ -160,7 +162,7 @@
                                     <tbody>
                                       <tr>
                                         <td align="center" bgcolor="#A31F34" role="presentation" style="border:none;border-radius:4px;cursor:auto;mso-padding-alt:10px 25px;background:#A31F34;" valign="middle">
-                                          <a href="${link}" style="display:inline-block;background:#A31F34;color:#FFFFFF;font-family:Inter, Arial;font-size:14px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:4px;" target="_blank"> Reset Password </a>
+                                          <a href="${link}" style="display:inline-block;background:#A31F34;color:#FFFFFF;font-family:neue-haas-grotesk-text, sans-serif;font-size:14px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:4px;" target="_blank"> Reset Password </a>
                                         </td>
                                       </tr>
                                     </tbody>
@@ -169,7 +171,7 @@
                               </tr>
                               <tr>
                                 <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:Inter, Arial;font-size:13px;line-height:18px;text-align:left;color:#000000;">
+                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:left;color:#000000;">
                                     <p> If the button doesn't work, copy and paste this link into your web browser: </p>
                                     <p>${link}</p>
                                   </div>
@@ -208,7 +210,7 @@
                                       </tr>
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
-                                          <div style="font-family:Inter, Arial;font-size:12px;line-height:18px;text-align:center;color:#212326;"><b>${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
+                                          <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:12px;line-height:18px;text-align:center;color:#212326;"><b>${realmName}</b> &#x2022; 77 Massachusetts Ave &#x2022; Cambridge, MA 02139 &#x2022; USA</div>
                                         </td>
                                       </tr>
                                     </tbody>

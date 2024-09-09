@@ -39,6 +39,12 @@
 
   --pf-v5-global--danger-color--100: var(--Brand-Light-Red);
 
+  --pf-v5-global--FontFamily--text: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--heading: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--text--vf: "neue-haas-grotesk-text", sans-serif;
+  --pf-v5-global--FontFamily--heading--vf: "neue-haas-grotesk-text", sans-serif;
+
+  --pf-v5-global--LineHeight--md: 16px;
 }
 
 .pf-v5-c-alert {
@@ -55,20 +61,20 @@
 }
 
 .pf-v5-c-login {
-  --pf-v5-c-login__container--MaxWidth: 440px;
+  --pf-v5-c-login__container--MaxWidth: 600px;
 
-  --pf-v5-c-login__main-header--PaddingRight: 16px;
-  --pf-v5-c-login__main-header--PaddingLeft: 16px;
+  --pf-v5-c-login__main-header--PaddingRight: 32px;
+  --pf-v5-c-login__main-header--PaddingLeft: 32px;
   --pf-v5-c-login__main-header--PaddingTop: 80px;
+  --pf-v5-c-login__main-header--PaddingBottom: 0;
 
   --pf-v5-c-login__main-body--PaddingBottom: 0;
 
-  --pf-v5-c-login__main-body--PaddingRight: 16px;
-  --pf-v5-c-login__main-body--PaddingLeft: 16px;
+  --pf-v5-c-login__main-body--PaddingRight: 32px;
+  --pf-v5-c-login__main-body--PaddingLeft: 32px;
 }
 
 @media (max-width: 500px) {
-
   .pf-v5-c-login .pf-v5-c-login__main-header {
     padding-top: 10px;
   }
@@ -81,7 +87,7 @@
 }
 
 .pf-v5-c-form {
-  --pf-v5-c-form--GridGap: 0.3rem;
+  --pf-v5-c-form--GridGap: 24px;
 }
 
 .pf-v5-c-login__main-footer {
@@ -90,10 +96,11 @@
 }
 
 .pf-v5-c-form-control {
+  margin-top: 4px;
   border-radius: 4px;
   border: 0;
   background: var(--Brand-White);
-  color: var(--Brand-Light-Silver-Gray);
+  color: var(--Brand-Dark-Gray-2);
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
   -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
   box-shadow: inset 0px 0px 0px 2px var(--Brand-Light-Silver-Gray);
@@ -102,7 +109,6 @@
 .pf-v5-c-form-control:focus, .pf-v5-c-form-control:hover, .pf-v5-c-form-control:active {
   border-width: 2px;
   padding: 0;
-  color: var(--Brand-Dark-Gray-2);
   outline: none;
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
   -moz-box-shadow: inset 0px 0px 0px 2px var(--Brand-Dark-Gray-2);
@@ -114,6 +120,12 @@
 }
 
 .pf-v5-c-button {
+  --pf-v5-c-button--FontWeight: 500;
+  --pf-v5-c-button--FontSize: 16px;
+
+  --pf-v5-c-button--PaddingTop: 16px;
+  --pf-v5-c-button--PaddingBottom: 16px;
+
   --pf-v5-c-button--m-primary--Color: var(--Brand-White);
   --pf-v5-c-button--m-primary--BackgroundColor: var(--Brand-MIT-Red);
   --pf-v5-c-button--m-primary--hover--BackgroundColor: var(--Brand-Red);
@@ -145,12 +157,12 @@ a.pf-v5-c-button:visited {
 
 
 .pf-v5-c-title.pf-m-3xl {
-  color: var(--Brand-Dark-Gray-1)
+  color: var(--Brand-Dark-Gray-2);
+  font-size: 24px;
 }
 
 .login-pf {
   background: var(--Brand-White);
-  font-family: Inter;
 }
 
 .login-pf body {
@@ -159,8 +171,11 @@ a.pf-v5-c-button:visited {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   padding: 0 16px 16px;
+  gap: 24px;
 }
 
 .login-pf #kc-header {
@@ -199,7 +214,6 @@ main {
   text-edge: cap;
 
   /* Heading */
-  font-family: Inter;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -213,7 +227,6 @@ main {
   text-edge: cap;
 
   /* Heading */
-  font-family: Inter;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -227,16 +240,11 @@ main {
   text-edge: cap;
 
   /* Subheading */
-  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.1px;
-}
-
-.login-pf #kc-login {
-  margin-top: 20px;
 }
 
 .login-pf-page .login-pf-signup a {
@@ -263,6 +271,7 @@ main {
 .pf-v5-c-form__label-text {
   font-weight: normal !important;
   font-size: 16px;
+  color: var(--Brand-Dark-Gray-2);
 }
 
 #kc-header {
@@ -275,17 +284,23 @@ main {
   margin: auto;
 }
 
-#social-touchstone-idp {
+#kc-form-buttons {
   display: flex;
+  gap: 8px;
+  flex-direction: column;
+  margin-block-start: 0 !important;
+}
+
+#kc-registration {
+  font-size: 14px;
+}
+
+#social-touchstone-idp {
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-}
-
-#social-touchstone-idp svg {
-  margin-left: auto;
-}
-
-#social-touchstone-idp span {
-  margin-right: auto;
+  gap: 8px;
+  padding: 13px;
   font-weight: 500;
 }
 
@@ -299,7 +314,6 @@ main {
 }
 
 .login-pf-page .login-pf-signup span {
-  font-family: Inter;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -308,15 +322,15 @@ main {
   color: #5f6368;
 }
 
-/* footer styles START */
 .footer {
-  display: inline-flex;
-  padding: 96px 10px 50px 10px;
+  display: flex;
   justify-content: center;
+  color: var(--Brand-Dark-Silver-Gray);
   align-items: center;
   gap: 10px;
   width: 100%;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
@@ -330,27 +344,10 @@ main {
   gap: 10px;
 }
 
-.footer span {
-  color: #000;
-  leading-trim: both;
-  text-edge: cap;
-
-  /* Default */
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: -0.1px;
-}
-
-/* footer styles END */
-
 #input-error {
   color: var(--Brand-Red);
   leading-trim: both;
   text-edge: cap;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -363,13 +360,14 @@ main {
   display: flex;
   align-items: center;
   text-align: center;
+  color: var(Brand-Dark-Gray-2);
 }
 
 .separator::before,
 .separator::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid #d5dae1;
+  border-bottom: 1px solid var(--Brand-Light-Silver-Gray);
 }
 
 .separator:not(:empty)::before {
@@ -390,6 +388,10 @@ main {
   right: 1px;
 }
 
+.toggle-password-button .pf-v5-c-button {
+  padding: 12px;
+}
+
 .instruction {
   color: var(--Brand-Dark-Gray-1);
   font-weight: 400;
@@ -399,4 +401,38 @@ main {
 
 #kc-form-legal-options {
   color: var(--Brand-Dark-Silver-Gray);
+}
+
+#kc-form-options {
+  font-size: 14px;
+  color: var(--Brand-Dark-Silver-Gray);
+}
+
+.sign-up-suggest {
+  color: var(--Brand-Dark-Silver-Gray);
+}
+
+/*
+* upscale the recaptcha to match the form width
+* note that we also dynamically resize this in JS to get more accurate and to support mobile widths
+* */
+.g-recaptcha {
+  transform-origin: 0 0;
+  transform: scale(1.24);
+}
+
+.g-recaptcha iframe {
+  /* tighter border-radius to crop out the black background at the corners */
+  border-radius: 5px;
+  /* downsize the iframe to crop out black background on bottom and right of recaptcha */
+  width: 302px;
+  height: 76px;
+}
+/* undo some patternfly styles that are clobbering the layout */
+@media (min-width: 1200px) {
+  .pf-v5-c-login__container {
+    display: block;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
+  }
 }
