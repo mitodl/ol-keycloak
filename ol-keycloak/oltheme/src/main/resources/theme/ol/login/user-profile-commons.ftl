@@ -37,9 +37,6 @@
 			<label for="${attribute.name}" class="${properties.kcLabelClass!}">
 				<span class="pf-v5-c-form__label-text">
 					${advancedMsg(attribute.displayName!'')}
-					<#if attribute.required>
-						<span class="pf-v5-c-form__label-required" aria-hidden="true">&#42;</span>
-					</#if>
 				</span>
 			</label>
 			<template x-for="(item, index) in values">

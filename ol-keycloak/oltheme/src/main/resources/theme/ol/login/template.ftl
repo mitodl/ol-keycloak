@@ -165,14 +165,6 @@
         </#if>
       </header>
       <div class="pf-v5-c-login__main-body">
-        <#if displayRequiredFields>
-            <div class="${properties.kcContentWrapperClass!}">
-                <div class="${properties.kcLabelWrapperClass!} subtitle">
-                    <span class="pf-v5-c-helper-text__item-text"><span class="pf-v5-c-form__label-required">*</span> ${msg("requiredFields")}</span>
-                </div>
-            </div>
-        </#if>
-
         <#nested "form">
 
         <#if auth?has_content && auth.showTryAnotherWayLink()>
