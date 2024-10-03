@@ -106,7 +106,7 @@
               </#if>/>
               <input
                 class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
-                name="login" id="kc-login" type="submit" value="${msg(" doLogIn")}" />
+                name="login" id="kc-login" type="submit" value="${msg("doLogIn")}" />
           </div>
           </form>
           <#elseif realm.resetPasswordAllowed>
