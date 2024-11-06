@@ -66,6 +66,11 @@
   <!--<![endif]-->
   <style type="text/css">
     @media only screen and (min-width:480px) {
+      .mj-column-per-50 {
+        width: 50% !important;
+        max-width: 50%;
+      }
+
       .mj-column-per-100 {
         width: 100% !important;
         max-width: 100%;
@@ -74,6 +79,11 @@
 
   </style>
   <style media="screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-50 {
+      width: 50% !important;
+      max-width: 50%;
+    }
+
     .moz-text-html .mj-column-per-100 {
       width: 100% !important;
       max-width: 100%;
@@ -117,14 +127,28 @@
                   <tbody>
                     <tr>
                       <td style="border-bottom:1px solid #DDE1E6;direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
-                        <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
-                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                        <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:300px;" ><![endif]-->
+                        <div class="mj-column-per-50 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                             <tbody>
                               <tr>
-                                <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:center;color:#000000;"><a href="${msg(" homeUrl")}">
-                                      <img src="${url.resourcesUrl}/img/MITlearn.png" height="29" width="103" alt="MIT Learn" />
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:left;color:#000000;"><a href="${msg(" homeUrl")}">
+                                      <img src="${url.resourcesUrl}/img/mit-learn-logo.png" height="24" width="132" alt="MIT Learn" />
+                                    </a></div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:300px;" ><![endif]-->
+                        <div class="mj-column-per-50 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                            <tbody>
+                              <tr>
+                                <td align="right" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:right;color:#000000;"><a href="https://mit.edu">
+                                      <img src="${url.resourcesUrl}/img/mit-logo-black.png" height="24" width="45" alt="MIT" />
                                     </a></div>
                                 </td>
                               </tr>

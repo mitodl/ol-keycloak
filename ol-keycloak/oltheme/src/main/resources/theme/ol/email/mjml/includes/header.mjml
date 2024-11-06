@@ -1,12 +1,24 @@
 <mj-section border-bottom="1px solid #DDE1E6">
   <mj-column>
-    <mj-text padding="0" align="center">
+    <mj-text align="left">
       <a href="${msg("homeUrl")}">
         <img
-          src="${url.resourcesUrl}/img/MITlearn.png"
-          height="29"
-          width="103"
+          src="${url.resourcesUrl}/img/mit-learn-logo.png"
+          height="24"
+          width="132"
           alt="MIT Learn"
+        />
+      </a>
+    </mj-text>
+  </mj-column>
+  <mj-column>
+    <mj-text align="right">
+      <a href="https://mit.edu">
+        <img
+          src="${url.resourcesUrl}/img/mit-logo-black.png"
+          height="24"
+          width="45"
+          alt="MIT"
         />
       </a>
     </mj-text>

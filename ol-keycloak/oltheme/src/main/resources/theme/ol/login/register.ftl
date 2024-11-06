@@ -6,6 +6,7 @@
     <#elseif section = "form">
         <p class="instruction pf-v5-u-pb-md">${msg("registerInstruction")}</p>
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
+            <input type="hidden" name="emailOptIn" value="1"/>
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="fullName" class="${properties.kcLabelClass!}">${msg("fullName")}</label>
