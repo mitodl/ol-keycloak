@@ -4,7 +4,7 @@
         ${msg("emailVerifyTitle")}
     <#elseif section = "form">
         <p class="instruction">
-          ${msg("emailVerifyInstruction1")}
+          ${msg("emailVerifyInstruction1", user.email)}
         </p>
     <#elseif section = "info">
         <div id="kc-info" class="${properties.kcSignUpClass!}">
