@@ -208,6 +208,11 @@ main {
   align-self: stretch;
 }
 
+.header-wrapper {
+  margin-bottom: 48px;
+  margin-inline-end: 0;
+}
+
 #kc-attempted-username {
   color: #d5dae1;
   leading-trim: both;

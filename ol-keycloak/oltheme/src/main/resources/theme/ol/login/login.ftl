@@ -152,6 +152,6 @@
           <p class="pf-v5-u-font-weight-bold pf-v5-u-mb-sm">You already have a login with:</p>
         </#if>
         <#include "social-providers.ftl">
-          </#if>
+      </#if>
 
   </@layout.registrationLayout>
