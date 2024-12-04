@@ -178,7 +178,7 @@
               </span>
           </div>
           <div id="footer-links">
-            <a href="${olSettings.privacyPolicyUrl}">${msg("registerPrivacyPolicy")}</a>
+            <a href="${(olSettings.privacyPolicyUrl)!'#'}">${msg("registerPrivacyPolicy")}</a>
           </div>
       </footer>
     </main>
