@@ -10,7 +10,7 @@
       <#elseif section="form">
         <div id="kc-form">
           <div id="kc-form-wrapper">
-            <#if realm.password && !social.providers??>
+            <#if realm.password && social.providers?size == 0>
               <#if !loginAttempt.needsPassword>
                 <form id="kc-form-login" class="${properties.kcFormClass!} onsubmit=" login.disabled=true; return true;"
                   action="${url.loginAction}" method="post">
@@ -148,7 +148,7 @@
         </div>
       </#if>
       <#elseif section="socialProviders">
-        <#if realm.password && social.providers??>
+        <#if realm.password && social.providers?size != 0>
           <p class="pf-v5-u-font-weight-bold pf-v5-u-mb-sm">You already have a login with:</p>
         </#if>
         <#include "social-providers.ftl">
