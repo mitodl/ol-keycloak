@@ -110,8 +110,7 @@
           </div>
           </form>
           <#elseif realm.resetPasswordAllowed>
-            <form id="kc-form-login" onsubmit="login.disabled = true; return true;"
-              action="${url.loginResetCredentialsUrl}" method="get" class="${properties.kcFormClass!}">
+            <div id="kc-form-login" class="${properties.kcFormClass!}">
               <div class="${properties.kcFormGroupClass!}">
                 <p>
                   <b>Password required.</b>
@@ -119,17 +118,18 @@
                 </p>
               </div>
               <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                <button
+                <a
+                  href="${url.loginResetCredentialsUrl}"
                   class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
                   id="kc-create-password" type="submit">
                   ${msg("createPassword")}
-                </button>
+                </a>
               </div>
-            </form>
-            <#else>
-              <div class="${properties.kcFormGroupClass!}">
-                <p>Unable to log you in - no password and password reset is disabled by the administrator.</p>
-              </div>
+            </div>
+          <#else>
+            <div class="${properties.kcFormGroupClass!}">
+              <p>Unable to log you in - no password and password reset is disabled by the administrator.</p>
+            </div>
     </#if>
     </#if>
     </div>
