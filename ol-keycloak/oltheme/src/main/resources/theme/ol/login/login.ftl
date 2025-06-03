@@ -150,6 +150,10 @@
       <#elseif section="socialProviders">
         <#if realm.password && loginAttempt.hasSocialProviderAuth>
           <p class="pf-v5-u-font-weight-bold pf-v5-u-mb-sm">You already have a login with:</p>
+        <#else>
+          <div class="separator pf-v5-u-py-md">
+            <span class="pf-v5-u-px-md">or</span>
+          </div>
         </#if>
         <#include "social-providers.ftl">
       </#if>
