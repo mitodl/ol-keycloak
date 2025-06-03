@@ -40,7 +40,7 @@ public class OlFreeMarkerLoginFormsProvider extends org.keycloak.forms.login.fre
 
         if (page != null && page.equals(LOGIN)) {
             UserModel user = context.getUser();
-            attributes.put("loginAttempt", new OLLoginAttemptBean(user));
+            attributes.put("loginAttempt", new OLLoginAttemptBean(user, session, realm));
         }
     }
 }
