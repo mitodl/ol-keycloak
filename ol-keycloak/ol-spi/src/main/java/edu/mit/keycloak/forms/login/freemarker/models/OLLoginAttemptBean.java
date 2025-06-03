@@ -3,7 +3,6 @@ package edu.mit.keycloak.forms.login.freemarker.models;
 import org.keycloak.models.*;
 import org.keycloak.models.credential.PasswordCredentialModel;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 
