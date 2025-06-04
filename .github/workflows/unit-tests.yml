@@ -27,3 +27,4 @@ jobs:
 
       - name: Build and run tests
         run: mvn --batch-mode clean test
+        working-directory: ol-keycloak
