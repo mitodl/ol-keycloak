@@ -81,4 +81,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <parent>
+        <groupId>edu.mit.openlearning</groupId>
+        <artifactId>ol-keycloak</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 </project>
