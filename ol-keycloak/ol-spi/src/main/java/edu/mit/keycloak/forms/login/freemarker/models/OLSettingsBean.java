@@ -22,10 +22,6 @@ public class OLSettingsBean {
     }
 
     public String getTermsOfServiceUrl() {
-        return "https://learn.mit.edu/privacy";
-    }
-
-    public String getPrivacyPolicyUrl() {
         return "https://learn.mit.edu/terms";
     }
 }
