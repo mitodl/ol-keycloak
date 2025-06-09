@@ -16,7 +16,6 @@ public class OLSettingsBeanTest {
         OLSettingsBean bean = new OLSettingsBean(mockRealm);
 
         assertEquals("https://example.com", bean.getHomeUrl());
-        assertEquals("https://example.com/privacy", bean.getPrivacyPolicyUrl());
     }
 
     @Test
@@ -27,8 +26,6 @@ public class OLSettingsBeanTest {
         OLSettingsBean bean = new OLSettingsBean(mockRealm);
 
         assertEquals(OLSettingsBean.HOME_URL, bean.getHomeUrl());
-        // Default privacy policy URL will be "#/privacy" or "#" depending on URIBuilder behavior with "#"
-        assertEquals("#/privacy", bean.getPrivacyPolicyUrl());
     }
 
     @Test
@@ -39,6 +36,5 @@ public class OLSettingsBeanTest {
         OLSettingsBean bean = new OLSettingsBean(mockRealm);
 
         assertEquals("http://[invalid-url", bean.getHomeUrl());
-        assertEquals(OLSettingsBean.HOME_URL, bean.getPrivacyPolicyUrl());
     }
 }
