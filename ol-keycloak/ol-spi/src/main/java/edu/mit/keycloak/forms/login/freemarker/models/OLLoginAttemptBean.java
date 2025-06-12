@@ -28,6 +28,10 @@ public class OLLoginAttemptBean {
                 }
             });
 
+            if (user.isFederated()) {
+                this.needsPassword = false;
+            }
+
             // Check for linked identity providers
             Stream<FederatedIdentityModel> federatedIdentities =
                     session.users().getFederatedIdentitiesStream(realm, user);
