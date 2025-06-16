@@ -71,4 +71,24 @@ public class OLLoginAttemptBeanTest {
         assertTrue(bean.getNeedsPassword()); // no password credentials
         assertTrue(bean.getHasSocialProviderAuth()); // federated identity present
     }
+
+    @Test
+    public void testUserWithNoPasswordAndFederatedStorage() {
+        // Mock SubjectCredentialManager with no credentials
+        SubjectCredentialManager mockCredentialManager = mock(SubjectCredentialManager.class);
+        when(mockCredentialManager.getStoredCredentialsStream()).thenReturn(Stream.empty());
+        when(mockUser.credentialManager()).thenReturn(mockCredentialManager);
+        when(mockUser.isFederated()).thenReturn(true);
+
+        UserProvider userProvider = mock(UserProvider.class);
+        when(mockSession.users()).thenReturn(userProvider);
+        when(userProvider.getFederatedIdentitiesStream(mockRealm, mockUser))
+                .thenReturn(Stream.empty());
+
+        OLLoginAttemptBean bean = new OLLoginAttemptBean(mockUser, mockSession, mockRealm);
+
+        assertEquals("Rob Thomas", bean.getUserFullname());
+        assertFalse(bean.getNeedsPassword()); // no password credentials
+        assertFalse(bean.getHasSocialProviderAuth()); // federated identity present
+    }
 }
