@@ -9,7 +9,7 @@ RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \
     --metrics-enabled=true \
-    --spi-login--provider=ol-freemarker \
+    --spi-login-provider=ol-freemarker \
     --tracing-enabled=true \
     --tracing-jdbc-enabled=true
 
