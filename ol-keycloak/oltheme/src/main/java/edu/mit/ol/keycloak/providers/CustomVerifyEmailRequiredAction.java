@@ -8,7 +8,6 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 import org.keycloak.email.EmailException;
 import org.keycloak.email.EmailTemplateProvider;
-import org.keycloak.common.util.RandomString;
 import org.jboss.logging.Logger;
 
 import jakarta.ws.rs.core.Response;
@@ -101,7 +100,7 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
     }
 
     private void sendVerificationCode(RequiredActionContext context) {
-        String code = RandomString.randomString(6, RandomString.DIGITS); // 6-digit numeric code
+        String code = generateNumericCode(6); // 6-digit numeric code
         long timestamp = System.currentTimeMillis();
 
         context.getUser().setSingleAttribute("email_verification_code", code);
@@ -116,6 +115,15 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
         } catch (EmailException e) {
             logger.error("Failed to send verification email", e);
         }
+    }
+
+    private String generateNumericCode(int length) {
+        StringBuilder sb = new StringBuilder(length);
+        java.util.Random random = new java.util.Random();
+        for (int i = 0; i < length; i++) {
+            sb.append(random.nextInt(10));
+        }
+        return sb.toString();
     }
 
     @Override
