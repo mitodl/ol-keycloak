@@ -14,6 +14,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.Objects;
 import java.util.HashMap;
 import java.util.Map;
+import java.security.SecureRandom;
 
 public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
 
@@ -122,7 +123,7 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
 
     private String generateNumericCode(int length) {
         StringBuilder sb = new StringBuilder(length);
-        java.util.Random random = new java.util.Random();
+        SecureRandom random = new SecureRandom();
         for (int i = 0; i < length; i++) {
             sb.append(random.nextInt(10));
         }
