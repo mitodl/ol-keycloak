@@ -149,5 +149,10 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
         public String getId() {
             return PROVIDER_ID;
         }
+
+        @Override
+        public void close() {
+            // No resources to clean up
+        }
     }
 }
