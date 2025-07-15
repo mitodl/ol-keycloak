@@ -12,6 +12,8 @@ import org.jboss.logging.Logger;
 
 import jakarta.ws.rs.core.Response;
 import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
 
@@ -108,10 +110,11 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
 
         try {
             EmailTemplateProvider emailProvider = context.getSession().getProvider(EmailTemplateProvider.class);
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("code", code);
             emailProvider.setRealm(context.getRealm())
                          .setUser(context.getUser())
-                         .setAttribute("code", code)
-                         .send("emailVerificationSubject", "email-verification.ftl");
+                         .send("emailVerificationSubject", "email-verification.ftl", attributes);
         } catch (EmailException e) {
             logger.error("Failed to send verification email", e);
         }
@@ -127,7 +130,8 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
     }
 
     @Override
-    public void close() {}
+    public void close() {
+    }
 
     public static class Factory implements RequiredActionFactory {
 
