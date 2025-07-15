@@ -28,12 +28,8 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
 
     @Override
     public void requiredActionChallenge(RequiredActionContext context) {
-        // Check if we need to resend code
-        String resend = context.getHttpRequest().getDecodedFormParameters().getFirst("resend");
-        if ("true".equals(resend)) {
-            sendVerificationCode(context);
-        } else if (context.getUser().getFirstAttribute("email_verification_code") == null) {
-            // First time - send code
+        // Only send code if one doesn't already exist
+        if (context.getUser().getFirstAttribute("email_verification_code") == null) {
             sendVerificationCode(context);
         }
 
@@ -41,6 +37,31 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
                 .setAttribute("user", context.getUser())
                 .createForm("verify-email.ftl");
         context.challenge(challenge);
+    }
+
+    private enum VerificationCodeStatus {
+        VALID, INVALID, EXPIRED
+    }
+
+    private VerificationCodeStatus checkVerificationCode(RequiredActionContext context, String code) {
+        String storedCode = context.getUser().getFirstAttribute("email_verification_code");
+        String timestampStr = context.getUser().getFirstAttribute("email_code_timestamp");
+
+        if (storedCode == null || timestampStr == null) {
+            return VerificationCodeStatus.INVALID;
+        }
+
+        try {
+            long timestamp = Long.parseLong(timestampStr);
+            long now = System.currentTimeMillis();
+            if (now - timestamp > 15 * 60 * 1000) {
+                return VerificationCodeStatus.EXPIRED;
+            }
+        } catch (NumberFormatException e) {
+            return VerificationCodeStatus.INVALID;
+        }
+
+        return Objects.equals(code, storedCode) ? VerificationCodeStatus.VALID : VerificationCodeStatus.INVALID;
     }
 
     @Override
@@ -54,11 +75,22 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
             return;
         }
 
-        if (code != null && isValidVerificationCode(context, code)) {
+        VerificationCodeStatus status = checkVerificationCode(context, code);
+
+        if (status == VerificationCodeStatus.VALID) {
             context.getUser().setEmailVerified(true);
             context.getUser().removeAttribute("email_verification_code");
             context.getUser().removeAttribute("email_code_timestamp");
             context.success();
+        } else if (status == VerificationCodeStatus.EXPIRED) {
+            context.getUser().removeAttribute("email_verification_code");
+            context.getUser().removeAttribute("email_code_timestamp");
+            sendVerificationCode(context);
+            Response challenge = context.form()
+                    .setError("Your verification code has expired. A new code has been sent to your email.")
+                    .setAttribute("user", context.getUser())
+                    .createForm("verify-email.ftl");
+            context.challenge(challenge);
         } else {
             Response challenge = context.form()
                     .setError("Invalid verification code. Please check your email and try again.")
@@ -69,7 +101,7 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
     }
 
     private void sendVerificationCode(RequiredActionContext context) {
-        String code = RandomString.randomCode(6);
+        String code = RandomString.randomString(6, RandomString.DIGITS); // 6-digit numeric code
         long timestamp = System.currentTimeMillis();
 
         context.getUser().setSingleAttribute("email_verification_code", code);
@@ -84,30 +116,6 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
         } catch (EmailException e) {
             logger.error("Failed to send verification email", e);
         }
-    }
-
-    private boolean isValidVerificationCode(RequiredActionContext context, String code) {
-        String storedCode = context.getUser().getFirstAttribute("email_verification_code");
-        String timestampStr = context.getUser().getFirstAttribute("email_code_timestamp");
-
-        if (storedCode == null || timestampStr == null) {
-            return false;
-        }
-
-        // Check if code is expired (15 minutes)
-        try {
-            long timestamp = Long.parseLong(timestampStr);
-            long now = System.currentTimeMillis();
-            if (now - timestamp > 15 * 60 * 1000) {
-                context.getUser().removeAttribute("email_verification_code");
-                context.getUser().removeAttribute("email_code_timestamp");
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
-        }
-
-        return Objects.equals(code, storedCode);
     }
 
     @Override
