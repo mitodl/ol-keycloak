@@ -3,7 +3,6 @@
   <mj-body background-color="#F3F4F8" css-class="email-body">
     <mj-wrapper background-color="#FFFFFF" border-radius="8px" padding="0">
       <mj-include path="./includes/header.mjml" />
-
       <mj-section background-color="#FFFFFF" padding="0">
         <mj-column>
           <mj-text>
@@ -12,6 +11,39 @@
               Thank you for creating an account with ${realmName}. Please complete
               the account verification process by clicking this link:</p>
           </mj-text>
+
+          <#if code??>
+          <!-- Verification Code Section -->
+          <mj-text align="center" padding="20px 0 10px 0">
+            <h2 style="color: #333333; margin: 0;">Your Verification Code</h2>
+          </mj-text>
+          
+          <mj-text align="center" padding="10px 20px">
+            <div style="background-color: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 20px 0;">
+              <span style="font-size: 36px; font-weight: bold; color: #A31F34; letter-spacing: 4px;">
+                ${code}
+              </span>
+            </div>
+          </mj-text>
+          
+          <mj-text align="center" padding="0 20px 20px 20px">
+            <p style="font-size: 14px; color: #666666; margin: 0;">
+              Enter this code on the verification page to complete your email verification.
+            </p>
+            <p style="font-size: 12px; color: #999999; margin: 10px 0 0 0;">
+              This code expires in 15 minutes.
+            </p>
+          </mj-text>
+
+          <mj-divider border-color="#e9ecef" border-width="1px" padding="20px 0" />
+          
+          <mj-text align="center" padding="0 20px">
+            <p style="font-size: 14px; color: #666666;">
+              Or click the button below to verify automatically:
+            </p>
+          </mj-text>
+          </#if>
+
           <mj-button href="${link}" border-radius="4px" background-color="#A31F34" align="left" font-weight="bold"
             font-size="14px" color="#FFFFFF" padding="0 25px">
             Verify Your Email
@@ -21,7 +53,6 @@
           </mj-text>
         </mj-column>
       </mj-section>
-
       <mj-include path="./includes/footer.mjml" />
     </mj-wrapper>
   </mj-body>
