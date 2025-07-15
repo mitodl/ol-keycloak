@@ -17,7 +17,7 @@
           <mj-text align="center" padding="20px 0 10px 0">
             <h2 style="color: #333333; margin: 0;">Your Verification Code</h2>
           </mj-text>
-          
+
           <mj-text align="center" padding="10px 20px">
             <div style="background-color: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 20px 0;">
               <span style="font-size: 36px; font-weight: bold; color: #A31F34; letter-spacing: 4px;">
@@ -25,7 +25,7 @@
               </span>
             </div>
           </mj-text>
-          
+
           <mj-text align="center" padding="0 20px 20px 20px">
             <p style="font-size: 14px; color: #666666; margin: 0;">
               Enter this code on the verification page to complete your email verification.
@@ -36,7 +36,7 @@
           </mj-text>
 
           <mj-divider border-color="#e9ecef" border-width="1px" padding="20px 0" />
-          
+
           <mj-text align="center" padding="0 20px">
             <p style="font-size: 14px; color: #666666;">
               Or click the button below to verify automatically:

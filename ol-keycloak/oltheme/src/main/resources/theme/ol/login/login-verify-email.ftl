@@ -6,7 +6,7 @@
         <p class="instruction">
           ${msg("emailVerifyInstruction1", user.email)}
         </p>
-        
+
         <!-- Verification code form -->
         <form id="kc-verify-email-code-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
@@ -14,19 +14,19 @@
                     <label for="email_code" class="${properties.kcLabelClass!}">Verification Code</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="email_code" name="email_code" class="${properties.kcInputClass!}" 
-                           placeholder="Enter 6-digit code" maxlength="6" autofocus autocomplete="off" 
+                    <input type="text" id="email_code" name="email_code" class="${properties.kcInputClass!}"
+                           placeholder="Enter 6-digit code" maxlength="6" autofocus autocomplete="off"
                            style="text-align: center; font-size: 18px; letter-spacing: 2px;" />
                 </div>
             </div>
             <div class="${properties.kcFormGroupClass!}">
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}" 
+                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}"
                            name="submit" type="submit" value="Verify Email"/>
                 </div>
             </div>
         </form>
-        
+
         <!-- Resend code form -->
         <div style="margin-top: 15px; text-align: center;">
             <form action="${url.loginAction}" method="post" style="display: inline;">
@@ -36,7 +36,7 @@
                 </button>
             </form>
         </div>
-        
+
     <#elseif section = "info">
         <div id="kc-info" class="${properties.kcSignUpClass!}">
           <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
