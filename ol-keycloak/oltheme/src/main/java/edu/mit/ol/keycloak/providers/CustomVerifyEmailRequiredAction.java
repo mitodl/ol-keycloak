@@ -154,5 +154,10 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
         public void close() {
             // No resources to clean up
         }
+
+        @Override
+        public void postInit(org.keycloak.models.KeycloakSessionFactory factory) {
+            // No post-initialization needed
+        }
     }
 }
