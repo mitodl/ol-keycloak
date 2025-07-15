@@ -151,13 +151,18 @@ public class CustomVerifyEmailRequiredAction implements RequiredActionProvider {
         }
 
         @Override
-        public void close() {
-            // No resources to clean up
+        public void init(org.keycloak.Config.Scope config) {
+            // No initialization needed
         }
 
         @Override
         public void postInit(org.keycloak.models.KeycloakSessionFactory factory) {
             // No post-initialization needed
+        }
+
+        @Override
+        public void close() {
+            // No resources to clean up
         }
     }
 }
