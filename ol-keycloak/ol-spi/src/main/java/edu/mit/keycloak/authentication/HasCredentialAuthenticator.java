@@ -3,14 +3,13 @@ package edu.mit.keycloak.authentication;
 import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.Authenticator;
+import org.keycloak.forms.login.MessageType;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 import org.keycloak.models.credential.PasswordCredentialModel;
 
 public class HasCredentialAuthenticator implements Authenticator {
-
-    public static final String PROVIDER_ID = "has-credential-authenticator";
 
     @Override
     public void authenticate(AuthenticationFlowContext context) {
@@ -27,8 +26,8 @@ public class HasCredentialAuthenticator implements Authenticator {
         // This checks if a user has a password credential, a federated identity (e.g.,
         // linked social login, SAML, or OAuth provider),
         // or is linked to an external user federation provider (like LDAP).
-        boolean hasPassword = user.credentialManager().getCredentials().anyMatch(
-                credential -> credential instanceof PasswordCredentialModel);
+        boolean hasPassword = user.credentialManager().getStoredCredentialsStream()
+                                  .anyMatch(c -> c.getType().equals(PasswordCredentialModel.TYPE));
         // Use getFederatedIdentities() and check if the list is empty
         boolean hasFederatedIdentity = !user.credentialManager().getFederatedCredentialsStream().findAny()
                 .isEmpty();
@@ -36,13 +35,18 @@ public class HasCredentialAuthenticator implements Authenticator {
 
         if (hasPassword || hasFederatedIdentity || isFederatedUser) {
             context.success(); // User has at least one form of credential
+            return;
         } else {
             // No password, no linked social/SAML/OIDC, and not an LDAP-backed user
             // This user has no known way to authenticate directly.
-            context.failure(AuthenticationFlowError.INVALID_CREDENTIALS);
+            // context.failure(AuthenticationFlowError.INVALID_CREDENTIALS);
             // You might want to add a challenge here to display a message to the user,
             // e.g.,
-            // context.challenge(context.form().setError("noCredentialFound").createForm("login-no-credential.ftl"));
+            user.addRequiredAction(UserModel.RequiredAction.UPDATE_PASSWORD);
+            context.forceChallenge(context.form()
+                    .setMessage(MessageType.INFO,
+                            "For security reasons you will need to create a new password for your account.")
+                    .createForm("login-reset-password.ftl"));
             // This would require a custom FreeMarker template and message key.
         }
     }

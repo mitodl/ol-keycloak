@@ -14,7 +14,7 @@ import java.util.List;
 
 public class HasCredentialAuthenticatorFactory implements AuthenticatorFactory, ConfigurableAuthenticatorFactory {
 
-    public static final String PROVIDER_ID = HasCredentialAuthenticator.PROVIDER_ID;
+    public static final String PROVIDER_ID = "has-credential-authenticator";
 
     private static final Authenticator SINGLETON = new HasCredentialAuthenticator();
 
