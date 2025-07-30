@@ -7,6 +7,7 @@ COPY ol-keycloak/oltheme/src/main/resources/theme/ /opt/keycloak/themes/
 COPY plugins/*.jar /opt/keycloak/providers/
 RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
+    --features=update-email \
     --health-enabled=true \
     --metrics-enabled=true \
     --spi-login-provider=ol-freemarker \
