@@ -23,9 +23,9 @@ public class HasCredentialAuthenticator implements Authenticator {
             //         context.form()
             //                 .setError("invalidUsernameOrEmailMessage")
             //                 .createRegistration());
+            context.resetFlow();
             context.setForwardedInfoMessage("We do not have an account for that email on record. Please try another email or sign up for free.");
             sendToRegistration(context);
-            context.resetFlow();
             return;
         }
 
@@ -51,9 +51,9 @@ public class HasCredentialAuthenticator implements Authenticator {
             //         .setMessage(MessageType.INFO,
             //                 "For security reasons you will need to create a new password for your account.")
             //         .createPasswordReset());
+            context.resetFlow();
             context.setForwardedInfoMessage("For security reasons you will need to create a new password for your account.");
             sendToPasswordReset(context);
-            context.resetFlow();
             return;
         }
     }
