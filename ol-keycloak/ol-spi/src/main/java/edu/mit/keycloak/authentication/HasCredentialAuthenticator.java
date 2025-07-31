@@ -112,7 +112,7 @@ public class HasCredentialAuthenticator implements Authenticator {
     @Override
     public boolean configuredFor(KeycloakSession session, RealmModel realm, UserModel user) {
         // This authenticator is always applicable if a user exists
-        return this.hasCredential;
+        return true
     }
 
     @Override
