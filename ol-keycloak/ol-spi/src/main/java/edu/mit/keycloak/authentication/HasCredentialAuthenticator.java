@@ -18,12 +18,6 @@ public class HasCredentialAuthenticator implements Authenticator {
         if (user == null) {
             // If there is no user, it means there is no account created yet.
             // The user should be prompted to create an account by registering.
-            // context.fork();
-            // context.challenge(
-            //         context.form()
-            //                 .setError("invalidUsernameOrEmailMessage")
-            //                 .createRegistration());
-            context.resetFlow();
             context.setForwardedInfoMessage("We do not have an account for that email on record. Please try another email or sign up for free.");
             sendToRegistration(context);
             return;
@@ -47,11 +41,6 @@ public class HasCredentialAuthenticator implements Authenticator {
             // This user has no known way to authenticate directly.
             // Redirect through the reset password flow
             user.addRequiredAction(UserModel.RequiredAction.UPDATE_PASSWORD);
-            // context.challenge(context.form()
-            //         .setMessage(MessageType.INFO,
-            //                 "For security reasons you will need to create a new password for your account.")
-            //         .createPasswordReset());
-            context.resetFlow();
             context.setForwardedInfoMessage("For security reasons you will need to create a new password for your account.");
             sendToPasswordReset(context);
             return;
