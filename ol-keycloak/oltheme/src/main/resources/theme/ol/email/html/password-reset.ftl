@@ -193,14 +193,6 @@
                                   </table>
                                 </td>
                               </tr>
-                              <tr>
-                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                  <div style="font-family:neue-haas-grotesk-text, sans-serif;font-size:13px;line-height:18px;text-align:left;color:#000000;">
-                                    <p> If the button doesn't work, copy and paste this link into your web browser: </p>
-                                    <p>${link}</p>
-                                  </div>
-                                </td>
-                              </tr>
                             </tbody>
                           </table>
                         </div>
