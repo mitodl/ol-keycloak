@@ -40,7 +40,6 @@ public class HasCredentialAuthenticator implements Authenticator {
             // No password, no linked social/SAML/OIDC, and not an LDAP-backed user
             // This user has no known way to authenticate directly.
             // Redirect through the reset password flow
-            user.addRequiredAction(UserModel.RequiredAction.UPDATE_PASSWORD);
             context.setForwardedInfoMessage("For security reasons you will need to create a new password for your account.");
             sendToPasswordReset(context);
             return;
