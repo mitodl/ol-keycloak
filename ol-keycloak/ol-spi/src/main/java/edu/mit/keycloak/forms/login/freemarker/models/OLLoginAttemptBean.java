@@ -17,7 +17,9 @@ public class OLLoginAttemptBean {
         this.needsPassword = true;
         this.hasSocialProviderAuth = false;
         if (user != null) {
-            if (user.getFirstName() != null && user.getLastName() != null) {
+            if (user.getFirstAttribute("fullName") != null) {
+                this.userFullname = user.getFirstAttribute("fullName");
+            } else if (user.getFirstName() != null && user.getLastName() != null) {
                 this.userFullname = user.getFirstName().concat(" ").concat(user.getLastName());
             }
 
