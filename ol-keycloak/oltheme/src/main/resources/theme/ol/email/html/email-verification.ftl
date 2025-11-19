@@ -109,18 +109,20 @@
     }
 
   </style>
-  <!-- Font files for Adobe Neue Haas Grotesk.
-    WARNING: This is linked to chudzick@mit.edu's Adobe account. -->
+  <!--
+    Font files for Adobe Neue Haas Grotesk.
+    WARNING: This is linked to chudzick@mit.edu's Adobe account.
+  -->
 </head>
 
 <body style="word-spacing:normal;background-color:#F3F4F8;">
-  <div class="email-body" style="background-color:#F3F4F8;" lang="und" dir="auto">
+  <div aria-roledescription="email" class="email-body" style="background-color:#F3F4F8;" role="article" lang="und" dir="auto">
     <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#FFFFFF" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-    <div style="background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;border-radius:8px;max-width:600px;">
-      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;border-radius:8px;">
+    <div style="background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;border-radius:8px;overflow:hidden;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;border-collapse:separate;">
         <tbody>
           <tr>
-            <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+            <td style="border-radius:8px;direction:ltr;font-size:0px;padding:0;text-align:center;">
               <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
               <div style="margin:0px auto;max-width:600px;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
