@@ -9,10 +9,11 @@ RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \
     --metrics-enabled=true \
+    --event-metrics-user-enabled=true \
     --spi-login--provider=ol-freemarker \
     --tracing-enabled=true \
     --tracing-jdbc-enabled=true \
-    --features=update-email,user-event-metrics
+    --features=update-email
 
 # All env vars for hosted instances should be specified in
 # .env in the ol-infrastructure repo.
