@@ -6,6 +6,9 @@ on:
       - 'main'
     tags:
       - 'v*'
+    paths:
+      - 'ol-keycloak/**'
+      - '.github/workflows/release-ol-spi.yaml'
 
 jobs:
   build:

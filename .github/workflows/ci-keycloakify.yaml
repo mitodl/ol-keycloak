@@ -1,0 +1,54 @@
+name: Keycloakify CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ol-keycloakify/**'
+      - '.github/workflows/ci-keycloakify.yaml'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ol-keycloakify/**'
+      - '.github/workflows/ci-keycloakify.yaml'
+
+defaults:
+  run:
+    working-directory: ol-keycloakify
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
+        with:
+          node-version: "^24.0.0"
+          cache: yarn
+          cache-dependency-path: ol-keycloakify/yarn.lock
+
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Sync Keycloakify extensions
+        run: yarn keycloakify sync-extensions
+
+      - name: Format
+        run: yarn format
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Build Keycloak theme
+        run: yarn build-keycloak-theme

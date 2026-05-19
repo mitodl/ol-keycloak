@@ -2,6 +2,13 @@ name: Java CI - Unit Tests
 
 on:
   push:
+    paths:
+      - 'ol-keycloak/**'
+      - '.github/workflows/unit-tests.yml'
+  pull_request:
+    paths:
+      - 'ol-keycloak/**'
+      - '.github/workflows/unit-tests.yml'
 
 jobs:
   build-and-test:

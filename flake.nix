@@ -23,7 +23,10 @@
               enable = true;
               maven.enable = true;
             };
-            javascript.enable = true;
+            javascript = {
+              enable = true;
+              yarn.enable = true;
+            };
           };
         };
       };

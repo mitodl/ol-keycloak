@@ -1,10 +1,33 @@
 # Build with something like:
-#  docker build -f ./Dockerfile.hosted --build-arg $(cat .keycloak_upstream_tag) --platform=linux/amd64 .
+#  docker build -f ./Dockerfile.hosted --platform=linux/amd64 .
+
+# Stage 1: Build Java providers (ol-spi and oltheme JARs)
+FROM maven:3.9-eclipse-temurin-17 AS java-build
+WORKDIR /build
+COPY ol-keycloak/ .
+RUN mvn --batch-mode package -DskipTests
+
+# Stage 2: Build Keycloakify theme JAR
+# keycloakify build requires both Node.js and Maven/Java
+FROM maven:3.9-eclipse-temurin-17 AS theme-build
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && corepack enable \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY ol-keycloakify/ .
+RUN yarn install --immutable \
+    && yarn keycloakify sync-extensions \
+    && yarn build-keycloak-theme
+
+# Stage 3: Final Keycloak image
 FROM quay.io/keycloak/keycloak:26.6@sha256:26ae26445475f7fac5f90ee138b1bdb64324f5815fb16133ffdbdb122d97c4d8
 
 COPY ol-keycloak/oltheme/src/main/resources/theme/ /opt/keycloak/themes/
-# COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
-COPY plugins/*.jar /opt/keycloak/providers/
+COPY --from=java-build /build/ol-spi/target/*.jar /opt/keycloak/providers/
+COPY --from=java-build /build/oltheme/target/*.jar /opt/keycloak/providers/
+COPY --from=theme-build /app/dist_keycloak/*.jar /opt/keycloak/providers/
 RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \

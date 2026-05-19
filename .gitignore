@@ -10,3 +10,9 @@ node_modules/
 .factorypath
 .project
 .settings/
+
+# ol-keycloakify build outputs (also covered by ol-keycloakify/.gitignore)
+ol-keycloakify/dist/
+ol-keycloakify/dist_keycloak/
+ol-keycloakify/storybook-static/
+ol-keycloakify/node_modules/
