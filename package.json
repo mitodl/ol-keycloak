@@ -6,6 +6,6 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "mjml": "^4.15.3"
+    "mjml": "^5.0.0"
   }
 }
