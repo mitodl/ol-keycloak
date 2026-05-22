@@ -1,11 +1,8 @@
 {
   "name": "ol-keycloak",
   "version": "1.0.0",
-  "description": "Custom theme and extensions for Keycloak SSO",
+  "description": "Custom extensions for Keycloak SSO",
   "private": true,
   "author": "",
-  "license": "BSD",
-  "dependencies": {
-    "mjml": "^4.15.3"
-  }
+  "license": "BSD"
 }

@@ -13,6 +13,6 @@ mvn clean install
 
 popd || exit 1
 
-cp ol-keycloak/{oltheme,ol-spi}/target/*.jar plugins/
+cp ol-keycloak/ol-spi/target/*.jar plugins/
 
 popd || exit 1

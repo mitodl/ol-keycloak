@@ -2,7 +2,6 @@
 #  docker build -f ./Dockerfile.hosted --build-arg $(cat .keycloak_upstream_tag) --platform=linux/amd64 .
 FROM quay.io/keycloak/keycloak:26.6@sha256:e712055eab50036a06dda2921ee5158e4fdf8d362402ae3886cc0eb97012cffb
 
-COPY ol-keycloak/oltheme/src/main/resources/theme/ /opt/keycloak/themes/
 # COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
 COPY plugins/*.jar /opt/keycloak/providers/
 RUN /opt/keycloak/bin/kc.sh build \
@@ -10,7 +9,6 @@ RUN /opt/keycloak/bin/kc.sh build \
     --health-enabled=true \
     --metrics-enabled=true \
     --event-metrics-user-enabled=true \
-    --spi-login--provider=ol-freemarker \
     --tracing-enabled=true \
     --tracing-jdbc-enabled=true \
     --features=update-email
