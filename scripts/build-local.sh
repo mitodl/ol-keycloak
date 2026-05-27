@@ -3,7 +3,7 @@
 
 set -eux
 
-SCRIPT_DIR=$( dirname -- "${BASH_SOURCE[0]}" )
+SCRIPT_DIR=$(dirname -- "${BASH_SOURCE[0]}")
 
 pushd "$SCRIPT_DIR/.." || exit 1
 

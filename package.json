@@ -1,8 +1,0 @@
-{
-  "name": "ol-keycloak",
-  "version": "1.0.0",
-  "description": "Custom extensions for Keycloak SSO",
-  "private": true,
-  "author": "",
-  "license": "BSD"
-}
