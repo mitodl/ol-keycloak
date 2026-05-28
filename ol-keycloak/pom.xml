@@ -12,7 +12,6 @@
 
     <modules>
         <module>ol-spi</module>
-        <module>oltheme</module>
     </modules>
 
     <properties>

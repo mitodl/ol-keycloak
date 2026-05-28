@@ -11,6 +11,13 @@ import org.keycloak.forms.login.LoginFormsPages;
 import org.keycloak.forms.login.freemarker.FreeMarkerLoginFormsProvider;
 import org.keycloak.models.*;
 import org.keycloak.theme.Theme;
+import org.keycloak.tracing.TracingProvider;
+
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.SpanContext;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 
 import java.lang.reflect.Field;
 import java.util.Locale;
@@ -26,7 +33,9 @@ public class OlFreeMarkerLoginFormsProviderTest {
     private KeycloakSession mockSession;
     private RealmModel mockRealm;
     private KeycloakContext mockContext;
+    private ThemeManager mockThemeManager;
     private Theme mockTheme;
+    private TracingProvider mockTracingProvider;
     private Locale mockLocale;
     private Properties mockProperties;
     private UriBuilder mockUriBuilder;
@@ -63,16 +72,29 @@ public class OlFreeMarkerLoginFormsProviderTest {
         mockContext = mock(KeycloakContext.class);
         mockRealm = mock(RealmModel.class);
         mockAuthFlowContext = mock(AuthenticationFlowContext.class);
+        mockThemeManager = mock(ThemeManager.class);
+        mockTheme = mock(Theme.class);
+        mockTracingProvider = mock(TracingProvider.class);
+
+        Span mockSpan = mock(Span.class);
+        SpanContext mockSpanContext = mock(SpanContext.class);
+        when(mockSpan.getSpanContext()).thenReturn(mockSpanContext);
+        when(mockSpanContext.isValid()).thenReturn(false);
 
         when(mockSession.getContext()).thenReturn(mockContext);
+        when(mockSession.theme()).thenReturn(mockThemeManager);
+        when(mockSession.getProvider(TracingProvider.class)).thenReturn(mockTracingProvider);
+        when(mockTracingProvider.getCurrentSpan()).thenReturn(mockSpan);
+        when(mockThemeManager.getTheme(any(Theme.Type.class))).thenReturn(mockTheme);
+        when(mockTheme.getEnhancedMessages(any(), any())).thenReturn(new Properties());
+        when(mockTheme.getProperties()).thenReturn(new Properties());
+        when(mockContext.resolveLocale(any())).thenReturn(Locale.ENGLISH);
         when(mockContext.getRealm()).thenReturn(mockRealm);
         when(mockContext.getUser()).thenReturn(null);
 
         PasswordPolicy mockPolicy = mock(PasswordPolicy.class);
         when(mockPolicy.getPolicyConfig(anyString())).thenReturn(null);
         when(mockRealm.getPasswordPolicy()).thenReturn(mockPolicy);
-
-        mockTheme = mock(Theme.class);
         mockLocale = Locale.ENGLISH;
         mockProperties = new Properties();
         mockUriBuilder = mock(UriBuilder.class);

@@ -3,7 +3,7 @@
 
 set -eux
 
-SCRIPT_DIR=$( dirname -- "${BASH_SOURCE[0]}" )
+SCRIPT_DIR=$(dirname -- "${BASH_SOURCE[0]}")
 
 pushd "$SCRIPT_DIR/.." || exit 1
 
@@ -13,6 +13,6 @@ mvn clean install
 
 popd || exit 1
 
-cp ol-keycloak/{oltheme,ol-spi}/target/*.jar plugins/
+cp ol-keycloak/ol-spi/target/*.jar plugins/
 
 popd || exit 1

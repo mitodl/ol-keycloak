@@ -1,8 +1,0 @@
-{
-  "themes": [
-    {
-      "name": "ol",
-      "types": ["email", "login"]
-    }
-  ]
-}
