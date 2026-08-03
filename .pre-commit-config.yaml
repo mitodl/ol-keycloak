@@ -17,3 +17,7 @@ repos:
       - id: detect-secrets
         args: ["--baseline", ".secrets.baseline"]
         additional_dependencies: ['gibberish-detector']
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.29.0
+    hooks:
+      - id: zizmor
