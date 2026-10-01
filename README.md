@@ -9,7 +9,7 @@ Code checks run with [prek](https://prek.j178.dev/), which reads `.pre-commit-co
 Install the version pinned by `prek-version` in `.github/workflows/autofix.yml`:
 
 ```bash
-uv tool install prek==0.5.4
+uv tool install prek==0.5.3
 prek install -f             # replaces a pre-commit git hook, if one is installed
 prek run --all-files
 ```
