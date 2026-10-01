@@ -2,6 +2,18 @@
 
 Custom extensions for Keycloak SSO
 
+## Development
+
+Code checks run with [prek](https://prek.j178.dev/), which reads `.pre-commit-config.yaml`. The `prek` check runs the same hooks on every pull request, and [autofix.ci](https://autofix.ci/) pushes a commit with any fixes they make.
+
+Install the version pinned by `prek-version` in `.github/workflows/autofix.yml`:
+
+```bash
+uv tool install prek==0.5.4
+prek install -f             # replaces a pre-commit git hook, if one is installed
+prek run --all-files
+```
+
 ## Setup
 
 ### Steps to integrate with Keycloak
