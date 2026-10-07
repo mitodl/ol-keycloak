@@ -4,6 +4,12 @@ FROM quay.io/keycloak/keycloak:26.7@sha256:37dbaf6f0722c9ec246335f36e1ef8b2e6cb9
 
 # COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
 COPY plugins/*.jar /opt/keycloak/providers/
+# scim-api is on by default from 26.8 and registers a realm-restapi-extension
+# factory with the id `scim`, the same id scim-for-keycloak uses. Keycloak
+# already prefers the plugin's factory, so /realms/<realm>/scim is the
+# plugin's either way. Disabling the feature removes the built-in SCIM
+# resource providers and the realm "SCIM API" switch, which would otherwise
+# sit in the admin console controlling an endpoint that is not served.
 RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \
@@ -12,7 +18,8 @@ RUN /opt/keycloak/bin/kc.sh build \
     --spi-login--provider=ol-freemarker \
     --tracing-enabled=true \
     --tracing-jdbc-enabled=true \
-    --features=update-email
+    --features=update-email \
+    --features-disabled=scim-api
 
 # All env vars for hosted instances should be specified in
 # .env in the ol-infrastructure repo.
