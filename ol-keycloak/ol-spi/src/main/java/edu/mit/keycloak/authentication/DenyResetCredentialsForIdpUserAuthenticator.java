@@ -4,6 +4,7 @@ import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.Authenticator;
 import org.keycloak.models.FederatedIdentityModel;
+import org.keycloak.models.IdentityProviderModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
@@ -28,8 +29,18 @@ public class DenyResetCredentialsForIdpUserAuthenticator implements Authenticato
             return;
         }
 
+        // getFederatedIdentitiesStream can return rows for an identity provider
+        // that has since been removed from the realm (Keycloak does not clean
+        // these up when an IdP is deleted). Only block on a link whose provider
+        // still exists and is enabled, so a stale row can't permanently lock a
+        // user out of password recovery.
         FederatedIdentityModel federatedIdentity = context.getSession().users()
                 .getFederatedIdentitiesStream(context.getRealm(), user)
+                .filter(identity -> {
+                    IdentityProviderModel idp = context.getSession().identityProviders()
+                            .getByAlias(identity.getIdentityProvider());
+                    return idp != null && idp.isEnabled();
+                })
                 .findFirst()
                 .orElse(null);
 

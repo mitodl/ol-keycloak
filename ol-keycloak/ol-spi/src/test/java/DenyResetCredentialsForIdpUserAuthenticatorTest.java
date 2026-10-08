@@ -5,6 +5,8 @@ import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.forms.login.LoginFormsProvider;
 import org.keycloak.models.FederatedIdentityModel;
+import org.keycloak.models.IdentityProviderModel;
+import org.keycloak.models.IdentityProviderStorageProvider;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
@@ -56,6 +58,8 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
         AuthenticationFlowContext context = mock(AuthenticationFlowContext.class);
         KeycloakSession session = mock(KeycloakSession.class);
         UserProvider userProvider = mock(UserProvider.class);
+        IdentityProviderStorageProvider idpStorageProvider = mock(IdentityProviderStorageProvider.class);
+        IdentityProviderModel idp = mock(IdentityProviderModel.class);
         RealmModel realm = mock(RealmModel.class);
         UserModel user = mock(UserModel.class);
         FederatedIdentityModel federatedIdentity = mock(FederatedIdentityModel.class);
@@ -69,6 +73,9 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
         when(userProvider.getFederatedIdentitiesStream(realm, user))
                 .thenReturn(Stream.of(federatedIdentity));
         when(federatedIdentity.getIdentityProvider()).thenReturn("MASAI");
+        when(session.identityProviders()).thenReturn(idpStorageProvider);
+        when(idpStorageProvider.getByAlias("MASAI")).thenReturn(idp);
+        when(idp.isEnabled()).thenReturn(true);
         when(context.form()).thenReturn(formsProvider);
         when(formsProvider.setError(anyString())).thenReturn(formsProvider);
         when(formsProvider.createErrorPage(Response.Status.BAD_REQUEST)).thenReturn(errorResponse);
@@ -78,5 +85,59 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
         verify(context, never()).success();
         verify(context).failureChallenge(AuthenticationFlowError.ACCESS_DENIED, errorResponse);
         verify(formsProvider).setError(contains("MASAI"));
+    }
+
+    @Test
+    public void testSucceedsWhenFederatedIdentityProviderNoLongerExists() {
+        AuthenticationFlowContext context = mock(AuthenticationFlowContext.class);
+        KeycloakSession session = mock(KeycloakSession.class);
+        UserProvider userProvider = mock(UserProvider.class);
+        IdentityProviderStorageProvider idpStorageProvider = mock(IdentityProviderStorageProvider.class);
+        RealmModel realm = mock(RealmModel.class);
+        UserModel user = mock(UserModel.class);
+        FederatedIdentityModel federatedIdentity = mock(FederatedIdentityModel.class);
+
+        when(context.getUser()).thenReturn(user);
+        when(context.getSession()).thenReturn(session);
+        when(context.getRealm()).thenReturn(realm);
+        when(session.users()).thenReturn(userProvider);
+        when(userProvider.getFederatedIdentitiesStream(realm, user))
+                .thenReturn(Stream.of(federatedIdentity));
+        when(federatedIdentity.getIdentityProvider()).thenReturn("DECOMMISSIONED-IDP");
+        when(session.identityProviders()).thenReturn(idpStorageProvider);
+        when(idpStorageProvider.getByAlias("DECOMMISSIONED-IDP")).thenReturn(null);
+
+        authenticator.authenticate(context);
+
+        verify(context).success();
+        verify(context, never()).failureChallenge(any(), any());
+    }
+
+    @Test
+    public void testSucceedsWhenFederatedIdentityProviderIsDisabled() {
+        AuthenticationFlowContext context = mock(AuthenticationFlowContext.class);
+        KeycloakSession session = mock(KeycloakSession.class);
+        UserProvider userProvider = mock(UserProvider.class);
+        IdentityProviderStorageProvider idpStorageProvider = mock(IdentityProviderStorageProvider.class);
+        IdentityProviderModel idp = mock(IdentityProviderModel.class);
+        RealmModel realm = mock(RealmModel.class);
+        UserModel user = mock(UserModel.class);
+        FederatedIdentityModel federatedIdentity = mock(FederatedIdentityModel.class);
+
+        when(context.getUser()).thenReturn(user);
+        when(context.getSession()).thenReturn(session);
+        when(context.getRealm()).thenReturn(realm);
+        when(session.users()).thenReturn(userProvider);
+        when(userProvider.getFederatedIdentitiesStream(realm, user))
+                .thenReturn(Stream.of(federatedIdentity));
+        when(federatedIdentity.getIdentityProvider()).thenReturn("MASAI");
+        when(session.identityProviders()).thenReturn(idpStorageProvider);
+        when(idpStorageProvider.getByAlias("MASAI")).thenReturn(idp);
+        when(idp.isEnabled()).thenReturn(false);
+
+        authenticator.authenticate(context);
+
+        verify(context).success();
+        verify(context, never()).failureChallenge(any(), any());
     }
 }
