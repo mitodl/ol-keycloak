@@ -1,15 +1,14 @@
 package edu.mit.keycloak.authentication;
 
 import org.keycloak.authentication.AuthenticationFlowContext;
-import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.Authenticator;
 import org.keycloak.models.FederatedIdentityModel;
 import org.keycloak.models.IdentityProviderModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
-
-import jakarta.ws.rs.core.Response;
+import org.keycloak.models.utils.FormMessage;
+import org.keycloak.services.messages.Messages;
 
 /**
  * Runs in the realm's Reset Credentials flow, after the user has been resolved.
@@ -49,12 +48,13 @@ public class DenyResetCredentialsForIdpUserAuthenticator implements Authenticato
             return;
         }
 
-        Response challenge = context.form()
-                .setError(
-                        "This account signs in through " + federatedIdentity.getIdentityProvider()
-                        + ". Please use that sign-in method instead of resetting a password here.")
-                .createErrorPage(Response.Status.BAD_REQUEST);
-        context.failureChallenge(AuthenticationFlowError.ACCESS_DENIED, challenge);
+        // Respond exactly like ResetCredentialEmail's "don't reveal account state"
+        // branch: a generic EMAIL_SENT page via forkWithSuccessMessage, with no
+        // email actually sent. An IdP-linked-specific response here would both let
+        // an unauthenticated caller probe whether an email is IdP-linked, and
+        // (via failureChallenge) count as a failed login against the real account
+        // under the realm's brute-force protection.
+        context.forkWithSuccessMessage(new FormMessage(Messages.EMAIL_SENT));
     }
 
     @Override

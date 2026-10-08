@@ -1,9 +1,6 @@
 import edu.mit.keycloak.authentication.DenyResetCredentialsForIdpUserAuthenticator;
-import jakarta.ws.rs.core.Response;
 import org.junit.jupiter.api.Test;
 import org.keycloak.authentication.AuthenticationFlowContext;
-import org.keycloak.authentication.AuthenticationFlowError;
-import org.keycloak.forms.login.LoginFormsProvider;
 import org.keycloak.models.FederatedIdentityModel;
 import org.keycloak.models.IdentityProviderModel;
 import org.keycloak.models.IdentityProviderStorageProvider;
@@ -11,6 +8,9 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 import org.keycloak.models.UserProvider;
+import org.keycloak.models.utils.FormMessage;
+import org.keycloak.services.messages.Messages;
+import org.mockito.ArgumentCaptor;
 
 import java.util.stream.Stream;
 
@@ -54,7 +54,7 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
     }
 
     @Test
-    public void testBlocksWhenUserHasFederatedIdentity() {
+    public void testForksWithGenericEmailSentMessageWhenUserHasFederatedIdentity() {
         AuthenticationFlowContext context = mock(AuthenticationFlowContext.class);
         KeycloakSession session = mock(KeycloakSession.class);
         UserProvider userProvider = mock(UserProvider.class);
@@ -63,8 +63,6 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
         RealmModel realm = mock(RealmModel.class);
         UserModel user = mock(UserModel.class);
         FederatedIdentityModel federatedIdentity = mock(FederatedIdentityModel.class);
-        LoginFormsProvider formsProvider = mock(LoginFormsProvider.class);
-        Response errorResponse = mock(Response.class);
 
         when(context.getUser()).thenReturn(user);
         when(context.getSession()).thenReturn(session);
@@ -76,15 +74,18 @@ public class DenyResetCredentialsForIdpUserAuthenticatorTest {
         when(session.identityProviders()).thenReturn(idpStorageProvider);
         when(idpStorageProvider.getByAlias("MASAI")).thenReturn(idp);
         when(idp.isEnabled()).thenReturn(true);
-        when(context.form()).thenReturn(formsProvider);
-        when(formsProvider.setError(anyString())).thenReturn(formsProvider);
-        when(formsProvider.createErrorPage(Response.Status.BAD_REQUEST)).thenReturn(errorResponse);
 
         authenticator.authenticate(context);
 
+        // Same generic response as ResetCredentialEmail's "don't reveal account
+        // state" branch: no success(), no failureChallenge() (which would count
+        // as a failed login under brute-force protection), just a forked
+        // EMAIL_SENT page with no email actually sent.
         verify(context, never()).success();
-        verify(context).failureChallenge(AuthenticationFlowError.ACCESS_DENIED, errorResponse);
-        verify(formsProvider).setError(contains("MASAI"));
+        verify(context, never()).failureChallenge(any(), any());
+        ArgumentCaptor<FormMessage> messageCaptor = ArgumentCaptor.forClass(FormMessage.class);
+        verify(context).forkWithSuccessMessage(messageCaptor.capture());
+        assertEquals(Messages.EMAIL_SENT, messageCaptor.getValue().getMessage());
     }
 
     @Test
