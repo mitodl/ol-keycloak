@@ -1,5 +1,8 @@
 # Build with something like:
-#  docker build -f ./Dockerfile.hosted --build-arg $(cat .keycloak_upstream_tag) --platform=linux/amd64 .
+#  docker build -f ./Dockerfile.hosted --platform=linux/amd64 .
+# The FROM line below sets the Keycloak server version. Move it together with
+# KEYCLOAK_VERSION in ol-infrastructure (src/bridge/lib/versions.py), which
+# picks the CAS and SCIM plugin jars for the build.
 FROM quay.io/keycloak/keycloak:26.8@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244
 
 # COPY ol-keycloak/ol-spi/ /opt/keycloak/providers/
