@@ -1,1 +1,2 @@
 edu.mit.keycloak.authentication.HasCredentialAuthenticatorFactory
+edu.mit.keycloak.authentication.DenyResetCredentialsForIdpUserAuthenticatorFactory
