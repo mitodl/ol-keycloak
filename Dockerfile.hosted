@@ -19,9 +19,12 @@ COPY plugins/*.jar /opt/keycloak/providers/
 # service-account clients can only be given it after Production upgrades.
 # Turning the check off until then keeps their Admin API calls working. Keycloak
 # treats this option as build-time (its name ends in "-enabled"), so it has to
-# be set here: an optimized start refuses it. CI starts non-optimized and
-# rebuilds without it, so CI still enforces the check. Remove this line once
-# every environment's admin API clients have kc-admin-api.
+# be set here: an optimized start exits if the runtime value differs from the
+# built one, which also means re-enabling the check needs a rebuilt image. CI
+# starts non-optimized and rebuilds without it, so CI still enforces the check.
+# Remove this line once every client that calls the Admin API gets tokens that
+# carry kc-admin-api. Having the scope assigned is not enough for clients that
+# have it as an optional scope; those apps must also request it.
 RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \
