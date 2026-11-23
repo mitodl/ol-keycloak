@@ -13,18 +13,6 @@ COPY plugins/*.jar /opt/keycloak/providers/
 # plugin's either way. Disabling the feature removes the built-in SCIM
 # resource providers and the realm "SCIM API" switch, which would otherwise
 # sit in the admin console controlling an endpoint that is not served.
-#
-# 26.8.2 makes the Admin REST API reject tokens without the kc-admin-api scope
-# (CVE-2026-19688). That scope is created by the 26.8.2 migration, so our
-# service-account clients can only be given it after Production upgrades.
-# Turning the check off until then keeps their Admin API calls working. Keycloak
-# treats this option as build-time (its name ends in "-enabled"), so it has to
-# be set here: an optimized start exits if the runtime value differs from the
-# built one, which also means re-enabling the check needs a rebuilt image. CI
-# starts non-optimized and rebuilds without it, so CI still enforces the check.
-# Remove this line once every client that calls the Admin API gets tokens that
-# carry kc-admin-api. Having the scope assigned is not enough for clients that
-# have it as an optional scope; those apps must also request it.
 RUN /opt/keycloak/bin/kc.sh build \
     --db=postgres \
     --health-enabled=true \
@@ -34,8 +22,7 @@ RUN /opt/keycloak/bin/kc.sh build \
     --tracing-enabled=true \
     --tracing-jdbc-enabled=true \
     --features=update-email \
-    --features-disabled=scim-api \
-    --spi-admin--audience-check-enabled=false
+    --features-disabled=scim-api
 
 # All env vars for hosted instances should be specified in
 # .env in the ol-infrastructure repo.
